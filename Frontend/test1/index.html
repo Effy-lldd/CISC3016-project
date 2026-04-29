@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Deep Dive</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- 引入图标库（模拟界面图标） -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 引入Chart.js绘制K线图 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- 顶部导航栏 -->
+        <header class="header">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <h1 class="logo-text">Stock Deep Dive</h1>
+                <div class="header-menu-icon">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="header-refresh-icon">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+            </div>
+            <div class="search-section">
+                <input type="text" placeholder="Search" class="search-input">
+            </div>
+            <div class="user-section">
+                <div class="alert-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="settings-icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <div class="user-info">
+                    <span class="username">Naimur Rahman</span>
+                    <span class="delay-info">15 Min Delayed</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 左侧工具栏 -->
+            <aside class="sidebar">
+                <div class="sidebar-icons">
+                    <div class="sidebar-icon active"><i class="fas fa-chart-line"></i></div>
+                    <div class="sidebar-icon"><i class="fas fa-list"></i></div>
+                    <div class="sidebar-icon"><i class="fas fa-star"></i></div>
+                    <div class="sidebar-icon"><i class="fas fa-briefcase"></i></div>
+                    <div class="sidebar-icon"><i class="fas fa-exchange-alt"></i></div>
+                    <div class="sidebar-icon"><i class="fas fa-cog"></i></div>
+                </div>
+            </aside>
+
+            <!-- 右侧内容区 -->
+            <div class="content-wrapper">
+                <!-- 左侧股票K线卡片 -->
+                <div class="stock-chart-card">
+                    <div class="card-header">
+                        <div class="stock-info">
+                            <div class="stock-icon"><i class="fas fa-circle"></i></div>
+                            <h2 class="stock-name">Pioneer Power Solutions, Inc.</h2>
+                            <span class="stock-ticker">PPSI</span>
+                        </div>
+                        <div class="card-expand-icon">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="stock-price-section">
+                        <span class="stock-price">4.29</span>
+                        <span class="stock-change negative">-0.08 (-1.83%)</span>
+                        <span class="stock-time">17/08/2025, 13:30:00</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="stockChart"></canvas>
+                    </div>
+                    <div class="stock-metrics-grid">
+                        <div class="metric-item">
+                            <span class="metric-label">Revenue:</span>
+                            <span class="metric-value">$210.3M</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Earnings Per Share:</span>
+                            <span class="metric-value negative">$0.11</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Position in Year Range:</span>
+                            <span class="metric-value">44.21</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Cash:</span>
+                            <span class="metric-value">$25.84M</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Float:</span>
+                            <span class="metric-value">8.53M</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Change Since January 1:</span>
+                            <span class="metric-value positive">5.33%</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Current Debt:</span>
+                            <span class="metric-value">$691.00K</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Short Float %:</span>
+                            <span class="metric-value">0.25%</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Change in 20 Days %:</span>
+                            <span class="metric-value positive">38.54%</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Total Volume:</span>
+                            <span class="metric-value">97.13M</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧股票详情卡片 -->
+                <div class="stock-details-card">
+                    <div class="card-header">
+                        <div class="stock-info">
+                            <div class="stock-icon"><i class="fas fa-circle"></i></div>
+                            <h2 class="stock-name">Stock Symbol</h2>
+                        </div>
+                        <div class="card-expand-icon">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="stock-ticker-select">
+                        <select class="ticker-dropdown">
+                            <option selected>PPSI</option>
+                            <option>AAPL</option>
+                            <option>MSFT</option>
+                            <option>TSLA</option>
+                        </select>
+                    </div>
+                    <div class="card-tabs">
+                        <button class="tab-btn active">Details</button>
+                        <button class="tab-btn">Profile</button>
+                        <button class="tab-btn">News</button>
+                    </div>
+                    <div class="stock-details-grid">
+                        <div class="detail-item">
+                            <h3 class="detail-title">Pioneer Power Solutions, Inc.</h3>
+                            <span class="detail-price">4.29</span>
+                            <span class="detail-change negative">-0.08 (-1.83%)</span>
+                            <span class="detail-time">17/08/2025, 13:30:00</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Relative Volume</span>
+                            <span class="detail-value">97.00M</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Float</span>
+                            <select class="detail-select">
+                                <option selected>8.53M</option>
+                            </select>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Change Since January</span>
+                            <select class="detail-select">
+                                <option selected>01</option>
+                            </select>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Cash</span>
+                            <select class="detail-select">
+                                <option selected>$25.84M</option>
+                            </select>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Earning Date</span>
+                            <select class="detail-select">
+                                <option selected>11 Aug</option>
+                            </select>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Current Debt</span>
+                            <select class="detail-select">
+                                <option selected>$691.00K</option>
+                            </select>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Options Volume Today</span>
+                            <select class="detail-select">
+                                <option selected>0</option>
+                            </select>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Short Float</span>
+                            <select class="detail-select">
+                                <option selected>0.25%</option>
+                            </select>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Dollar Volume</span>
+                            <select class="detail-select">
+                                <option selected>0</option>
+                            </select>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Shr.Out</span>
+                            <select class="detail-select">
+                                <option selected>112,000</option>
+                            </select>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Revenue</span>
+                            <select class="detail-select">
+                                <option selected>0</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="copyright-text">
+                        2025 - Trade Ideas
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- 底部竞品卡片 -->
+        <footer class="competitors-card">
+            <div class="card-header">
+                <div class="stock-info">
+                    <div class="stock-icon"><i class="fas fa-chart-area"></i></div>
+                    <h2 class="stock-name">PPSI Competitors Stock Race Replay</h2>
+                </div>
+                <div class="card-expand-icon">
+                    <i class="fas fa-expand"></i>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
