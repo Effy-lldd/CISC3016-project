@@ -1,0 +1,657 @@
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* 全局变量 */
+:root {
+    --bg-primary: #121212;
+    --bg-secondary: #1E1E1E;
+    --bg-tertiary: #2D2D2D;
+    --text-primary: #FFFFFF;
+    --text-secondary: #B0B0B0;
+    --accent-green: #00FF88;
+    --accent-red: #FF4444;
+    --accent-yellow: #E6FF00;
+    --border-color: #383838;
+    --hover-color: #333333;
+}
+
+/* 主体样式 */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+}
+
+.app-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* 顶部导航栏 */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1rem;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    background-color: var(--accent-yellow);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bg-primary);
+    font-weight: bold;
+}
+
+.logo-text {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.header-menu-icon, .header-refresh-icon {
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.search-section {
+    flex: 1;
+    max-width: 400px;
+    margin: 0 2rem;
+}
+
+.search-input {
+    width: 100%;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    color: var(--text-primary);
+    outline: none;
+    font-size: 0.9rem;
+}
+
+.search-input::placeholder {
+    color: var(--text-secondary);
+}
+
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.alert-icon, .settings-icon {
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.username {
+    font-weight: 500;
+}
+
+.delay-info {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+/* 主内容区 */
+.main-content {
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* 左侧工具栏 */
+.sidebar {
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.sidebar-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.sidebar-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sidebar-icon.active {
+    background-color: var(--bg-tertiary);
+    color: var(--accent-green);
+}
+
+.sidebar-icon:hover {
+    background-color: var(--hover-color);
+}
+
+/* 右侧内容包装器 */
+.content-wrapper {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+}
+
+/* 通用卡片样式 */
+.stock-chart-card, .stock-details-card, .competitors-card {
+    background-color: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 1.2rem;
+    border: 1px solid var(--border-color);
+}
+
+.competitors-card {
+    margin-top: 1.5rem;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.stock-info {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.stock-icon {
+    color: var(--accent-yellow);
+    font-size: 1.1rem;
+}
+
+.stock-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.stock-ticker {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-left: 0.3rem;
+}
+
+.card-expand-icon {
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* 股票价格区域 */
+.stock-price-section {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.stock-price {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.stock-change {
+    font-size: 0.9rem;
+}
+
+.positive {
+    color: var(--accent-green);
+}
+
+.negative {
+    color: var(--accent-red);
+}
+
+.stock-time {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-left: auto;
+}
+
+/* K线图容器 */
+.chart-container {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 1.5rem;
+}
+
+/* 股票指标网格 */
+.stock-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.metric-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.metric-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.metric-value {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* 股票指标网格 - 简约紧凑版 */
+.stock-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.7rem;
+    margin-bottom: 0.5rem;
+}
+
+.metric-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.metric-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.metric-value {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+
+/* 股票详情卡片 */
+.stock-ticker-select {
+    margin-bottom: 1rem;
+}
+
+.ticker-dropdown {
+    width: 100%;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    color: var(--text-primary);
+    outline: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.card-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tab-btn {
+    background-color: var(--bg-tertiary);
+    border: none;
+    border-radius: 6px;
+    padding: 0.6rem 1.2rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.tab-btn.active {
+    background-color: var(--accent-yellow);
+    color: var(--bg-primary);
+    font-weight: 500;
+}
+
+.tab-btn:hover:not(.active) {
+    background-color: var(--hover-color);
+    color: var(--text-primary);
+}
+
+/* 详情网格 */
+.stock-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.detail-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+
+.detail-price {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.detail-change {
+    font-size: 0.85rem;
+}
+
+.detail-time {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.detail-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.detail-select {
+    width: 100%;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.5rem 0.8rem;
+    color: var(--text-primary);
+    outline: none;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.copyright-text {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-align: right;
+}
+
+/* 标签内容容器 */
+.tab-content {
+    width: 100%;
+}
+
+/* 标签面板（默认隐藏） */
+.tab-pane {
+    display: none;
+    width: 100%;
+}
+
+/* 激活的标签面板显示 */
+.tab-pane.active {
+    display: block;
+}
+
+/* Profile 标签样式 */
+.profile-content {
+    width: 100%;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.profile-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.profile-ticker {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.profile-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.profile-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.profile-value {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.profile-description {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.profile-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-primary);
+}
+
+/* ========== Profile 汇率对比表 高级样式 ========== */
+/* 1. 整体容器优化 - 更紧凑的间距+内边距 */
+.profile-details {
+    gap: 0.8rem !important;
+    padding: 0.5rem 0;
+}
+
+/* 2. 表头样式升级 - 渐变文字+加粗+更大字号 */
+.profile-item:first-child {
+    background: linear-gradient(90deg, var(--accent-yellow), #ffcc00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* 3. 分隔线优化 - 半透明磨砂效果 */
+.profile-details > div:nth-child(2) {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+    margin: 0.3rem 0 !important;
+}
+
+/* 4. 汇率行样式 - 悬浮动效+细边框+圆角 */
+.profile-item:not(:first-child) {
+    flex-direction: row !important; /* 改为横向排列（标签+数值左右对齐） */
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem 0.9rem;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+    border: 1px solid transparent;
+}
+
+/* 5. 悬浮效果 - 边框高亮+背景微变+轻微上浮 */
+.profile-item:not(:first-child):hover {
+    background-color: rgba(45, 45, 45, 0.8);
+    border-color: rgba(230, 255, 0, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profile-item:not(:first-child):hover .profile-label {
+    color: var(--accent-yellow) !important;
+}
+
+/* 6. 目标货币标签 - 固定宽度+居中 */
+.profile-item:not(:first-child) .profile-label {
+    width: 60px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem !important;
+}
+
+/* 7. 汇率数值 - 加粗+更大字号+发光效果 */
+.profile-item:not(:first-child) .profile-value {
+    font-size: 1rem !important;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.1);
+}
+
+
+
+/* 9. 版权信息位置优化 */
+.profile-content .copyright-text {
+    margin-top: 1rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+
+/* News 标签样式 */
+.news-content {
+    width: 100%;
+}
+
+.news-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.news-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.news-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.news-date {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.news-heading {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.news-excerpt {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.news-link {
+    font-size: 0.85rem;
+    color: var(--accent-yellow);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    width: fit-content;
+    transition: color 0.2s ease;
+}
+
+.news-link:hover {
+    color: #ffff00;
+}
+
+
+/* 响应式适配 */
+@media (max-width: 1200px) {
+    .content-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .stock-metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .search-section {
+        order: 3;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+    
+    .stock-metrics-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stock-details-grid {
+        grid-template-columns: 1fr;
+    }
+}
