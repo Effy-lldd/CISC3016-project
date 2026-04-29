@@ -1,0 +1,14 @@
+# 你爬取的原始内容（替换成你的变量）
+raw_text = """Whitbread FY 2026 earnings preview: Can Premier Inn owner balance growth with rising costs? Whitbread is set to report its full-year 2025/26 results on 30 April, with investors focusing on whether the Premier Inn owner can maintain growth momentum while addressing mounting cost pressures and strategic questions around its long-term direction. The update will also include an important review of the company's strategy and outlook. Analyst expectations and ratings According to LSEG Data & Analytics analysts expect Whitbread to show full-year revenue of \u00a32.90 billion, a pre-tax profit of \u00a3475 million - marginally lower than a year ago \u2013 and earnings-per-share (EPS) of 202.84 pence, up around 5% compared to FY 2025. Analysts rate Whitbread between a \u2018buy\u2019 and \u2018hold\u2019 with a mean long-term price target at 2,830.67p, 19% above current levels (as of 29/04/2026).\n\nWhitbread FY 2026 earnings preview: Can Premier Inn owner balance growth with rising costs? Whitbread is set to report its full-year 2025/26 results on 30 April, with investors focusing on whether the Premier Inn owner can maintain growth momentum while addressing mounting cost pressures and strategic questions around its long-term direction. The update will also include an important review of the company's strategy and outlook. Analyst expectations and ratings According to LSEG Data & Analytics analysts expect Whitbread to show full-year revenue of \u00a32.90 billion, a pre-tax profit of \u00a3475 million - marginally lower than a year ago \u2013 and earnings-per-share (EPS) of 202.84 pence, up around 5% compared to FY 2025. Analysts rate Whitbread between a \u2018buy\u2019 and \u2018hold\u2019 with a mean long-term price target at 2,830.67p, 19% above current levels (as of 29/04/2026).\n\nTipRanks has given Whitbread a Smart Score of \u20184 Neutral\u2019.\n\nTipRanks has given Whitbread a Smart Score of \u20184 Neutral\u2019.\n\nTrading momentum remains intact but slowing Recent trading updates suggest Whitbread has delivered steady but unspectacular growth heading into year-end. In its Q3 update, total group sales rose around 2%, supported by continued strength in accommodation revenues across both the UK and Germany. Premier Inn UK has continued to outperform the wider market, maintaining a RevPAR Full text of the news here... The Federal Reserve's Federal Open Market Committee (FOMC) announced a 25 basis point increase in the federal funds rate, raising it to a range of 5.25% to 5.50%. This decision comes as the Fed aims to combat persistent inflation in the US economy."""
+
+# ======================================
+# 核心代码：1行解析所有转义符
+# 1. \n → 真实换行符
+# 2. \u00a3 → £  \u2018 → ‘  自动还原
+# ======================================
+import json
+final_content = json.loads(f'"{raw_text}"')
+
+# 把 final_content 返回给前端（接口/模板变量）
+# 这一步做完，前端拿到的就是带真实换行的文本了！
+print(final_content)
