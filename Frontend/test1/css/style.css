@@ -281,6 +281,31 @@ body {
     font-weight: 500;
 }
 
+/* 股票指标网格 - 简约紧凑版 */
+.stock-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.7rem;
+    margin-bottom: 0.5rem;
+}
+
+.metric-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.metric-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.metric-value {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+
 /* 股票详情卡片 */
 .stock-ticker-select {
     margin-bottom: 1rem;
@@ -458,6 +483,79 @@ body {
     line-height: 1.5;
     color: var(--text-primary);
 }
+
+/* ========== Profile 汇率对比表 高级样式 ========== */
+/* 1. 整体容器优化 - 更紧凑的间距+内边距 */
+.profile-details {
+    gap: 0.8rem !important;
+    padding: 0.5rem 0;
+}
+
+/* 2. 表头样式升级 - 渐变文字+加粗+更大字号 */
+.profile-item:first-child {
+    background: linear-gradient(90deg, var(--accent-yellow), #ffcc00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* 3. 分隔线优化 - 半透明磨砂效果 */
+.profile-details > div:nth-child(2) {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+    margin: 0.3rem 0 !important;
+}
+
+/* 4. 汇率行样式 - 悬浮动效+细边框+圆角 */
+.profile-item:not(:first-child) {
+    flex-direction: row !important; /* 改为横向排列（标签+数值左右对齐） */
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem 0.9rem;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+    border: 1px solid transparent;
+}
+
+/* 5. 悬浮效果 - 边框高亮+背景微变+轻微上浮 */
+.profile-item:not(:first-child):hover {
+    background-color: rgba(45, 45, 45, 0.8);
+    border-color: rgba(230, 255, 0, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profile-item:not(:first-child):hover .profile-label {
+    color: var(--accent-yellow) !important;
+}
+
+/* 6. 目标货币标签 - 固定宽度+居中 */
+.profile-item:not(:first-child) .profile-label {
+    width: 60px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem !important;
+}
+
+/* 7. 汇率数值 - 加粗+更大字号+发光效果 */
+.profile-item:not(:first-child) .profile-value {
+    font-size: 1rem !important;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.1);
+}
+
+
+
+/* 9. 版权信息位置优化 */
+.profile-content .copyright-text {
+    margin-top: 1rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
 
 /* News 标签样式 */
 .news-content {
