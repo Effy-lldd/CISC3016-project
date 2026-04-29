@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fed Rate Decision | Forex News</title>
+    <!-- 引入独立CSS -->
+    <link rel="stylesheet" href="css/news.css">
+    <!-- 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 返回按钮 -->
+    <button class="back-btn" id="backBtn">
+        <i class="fas fa-arrow-left"></i> Back
+    </button>
+
+    <!-- 新闻标题 -->
+    <h1 class="news-full-title">Fed Rate Decision Impact on USD/CNY Exchange Rate</h1>
+    <div class="news-source">Reuters · Published: 2026-04-29 14:00 UTC</div>
+    
+    <!-- 音频播放 -->
+    <audio class="audio-player" controls>
+        <source src="fed_rate_analysis.mp3" type="audio/mpeg">
+        Your browser does not support audio playback.
+    </audio>
+
+    <!-- 新闻配图 -->
+    <img src="images/simple1.png" alt="Fed Rate News" class="news-full-img">
+    
+    <!-- 新闻全文 -->
+    <div class="news-full-content">
+        Full text of the news here... 
+        The Federal Reserve's Federal Open Market Committee (FOMC) announced a 25 basis point increase in the federal funds rate, raising it to a range of 5.25% to 5.50%. This decision comes as the Fed aims to combat persistent inflation in the US economy.
+        <br><br>
+        For the USD/CNY currency pair, this rate hike has immediately pushed the exchange rate up by 0.15%, reaching 7.2210 at the time of announcement. Market analysts believe that the rate differential between the US and China will widen further, supporting the US Dollar in the short term.
+        <br><br>
+        However, the People's Bank of China (PBOC) has signaled that it may take measures to stabilize the Yuan, including adjusting the daily midpoint fix and intervening in the foreign exchange market if necessary.
+    </div>
+    
+    <!-- LLM评论区 -->
+    <h3 class="comment-title">Expert Market Comments</h3>
+    <div class="llm-comment-item">
+        • This rate hike is in line with market expectations, so the USD rally may be short-lived. We expect USD/CNY to stabilize around 7.20-7.25 in the next week.
+    </div>
+    <div class="llm-comment-item">
+        • The key factor to watch is China's export data next month. If exports improve, CNY may gain strength against USD despite the rate difference.
+    </div>
+    <div class="llm-comment-item">
+        • Risk warning: Unexpected geopolitical events or trade policy changes could lead to sharp volatility in USD/CNY.
+    </div>
+    
+    <!-- 图片放大模态框 -->
+    <div class="modal" id="imgModal">
+        <span class="close-btn">&times;</span>
+        <img class="modal-img" id="modalImg">
+    </div>
+
+    <!-- 引入独立JS -->
+    <script src="js/news.js"></script>
+</body>
+</html>
