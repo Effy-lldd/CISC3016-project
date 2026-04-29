@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /**
- * 初始化股票K线图
+ * 初始化股票K线图（修改为基础柱状图模拟K线）
  */
 function initStockChart() {
     const ctx = document.getElementById('stockChart').getContext('2d');
@@ -25,51 +25,38 @@ function initStockChart() {
         '21:00', '22:00', '23:00', '24:00', '01:00', '02:00'
     ];
     
-    // 模拟价格数据（高开低收）
-    const priceData = [
-        { open: 4.18, high: 4.30, low: 4.15, close: 4.25 },
-        { open: 4.25, high: 4.35, low: 4.20, close: 4.32 },
-        { open: 4.32, high: 4.40, low: 4.28, close: 4.38 },
-        { open: 4.38, high: 4.45, low: 4.30, close: 4.42 },
-        { open: 4.42, high: 4.50, low: 4.35, close: 4.45 },
-        { open: 4.45, high: 4.48, low: 4.38, close: 4.40 },
-        { open: 4.40, high: 4.46, low: 4.35, close: 4.42 },
-        { open: 4.42, high: 4.49, low: 4.38, close: 4.45 },
-        { open: 4.45, high: 4.47, low: 4.36, close: 4.40 },
-        { open: 4.40, high: 4.43, low: 4.30, close: 4.35 },
-        { open: 4.35, high: 4.38, low: 4.25, close: 4.29 }
-    ];
+    // 模拟收盘价（用于绘制折线/柱状图）
+    const closePrices = [4.25, 4.32, 4.38, 4.42, 4.45, 4.40, 4.42, 4.45, 4.40, 4.35, 4.29];
+    // 模拟高低价（用于绘制误差线）
+    const highPrices = [4.30, 4.35, 4.40, 4.45, 4.50, 4.48, 4.46, 4.49, 4.47, 4.43, 4.38];
+    const lowPrices = [4.15, 4.20, 4.28, 4.30, 4.35, 4.38, 4.35, 4.38, 4.36, 4.30, 4.25];
 
-    // 提取开盘/最高/最低/收盘数据
-    const openPrices = priceData.map(item => item.open);
-    const highPrices = priceData.map(item => item.high);
-    const lowPrices = priceData.map(item => item.low);
-    const closePrices = priceData.map(item => item.close);
-
-    // 创建K线图（使用Chart.js的蜡烛图）
+    // 创建模拟K线图（使用折线+误差线）
     new Chart(ctx, {
-        type: 'candlestick',
+        type: 'line',
         data: {
-            datasets: [{
-                label: 'PPSI Price',
-                data: priceData.map((item, index) => ({
-                    x: timeLabels[index],
-                    o: item.open,
-                    h: item.high,
-                    l: item.low,
-                    c: item.close
-                })),
-                color: {
-                    up: '#00FF88',    // 上涨绿色
-                    down: '#FF4444',  // 下跌红色
-                    unchanged: '#B0B0B0'
+            labels: timeLabels,
+            datasets: [
+                {
+                    label: 'Price',
+                    data: closePrices,
+                    borderColor: '#00FF88',
+                    backgroundColor: 'rgba(0, 255, 136, 0.1)',
+                    borderWidth: 2,
+                    tension: 0.1,
+                    fill: true
                 },
-                borderColor: {
-                    up: '#00FF88',
-                    down: '#FF4444',
-                    unchanged: '#B0B0B0'
+                {
+                    label: 'High-Low Range',
+                    data: highPrices.map((h, i) => ({ x: timeLabels[i], y: [lowPrices[i], h] })),
+                    type: 'bar',
+                    backgroundColor: 'rgba(255, 68, 68, 0.2)',
+                    borderColor: '#FF4444',
+                    borderWidth: 1,
+                    barPercentage: 0.2,
+                    categoryPercentage: 0.5
                 }
-            }]
+            ]
         },
         options: {
             responsive: true,
@@ -109,12 +96,11 @@ function initStockChart() {
                     bodyColor: '#FFFFFF',
                     callbacks: {
                         label: function(context) {
-                            const data = context.raw;
+                            const index = context.dataIndex;
                             return [
-                                `Open: $${data.o.toFixed(2)}`,
-                                `High: $${data.h.toFixed(2)}`,
-                                `Low: $${data.l.toFixed(2)}`,
-                                `Close: $${data.c.toFixed(2)}`
+                                `Close: $${closePrices[index].toFixed(2)}`,
+                                `High: $${highPrices[index].toFixed(2)}`,
+                                `Low: $${lowPrices[index].toFixed(2)}`
                             ];
                         }
                     }
@@ -127,6 +113,7 @@ function initStockChart() {
         }
     });
 }
+
 
 /**
  * 绑定标签切换事件（核心修改）
@@ -226,46 +213,3 @@ function simulateDataUpdate() {
     }, 5000);
 }
 
-// 扩展：Chart.js蜡烛图适配器（解决Chart.js默认不支持candlestick的问题）
-// 注：实际使用时需要引入chartjs-chart-financial插件，这里简化模拟
-if (!Chart.controllers.candlestick) {
-    Chart.register({
-        id: 'candlestick',
-        beforeInit: function(chart) {
-            chart.data.datasets.forEach(dataset => {
-                dataset.type = 'bar';
-                dataset.data = dataset.data.map(item => ({
-                    x: item.x,
-                    y: [item.l, item.h],
-                    open: item.o,
-                    close: item.c
-                }));
-            });
-        },
-        draw: function() {
-            const meta = this.getMeta();
-            const ctx = this.chart.ctx;
-            
-            meta.data.forEach((bar, index) => {
-                const data = this.dataset.data[index];
-                const x = bar.x;
-                const openY = this.chart.scales.y.getPixelForValue(data.open);
-                const closeY = this.chart.scales.y.getPixelForValue(data.close);
-                const highY = this.chart.scales.y.getPixelForValue(data.y[1]);
-                const lowY = this.chart.scales.y.getPixelForValue(data.y[0]);
-                
-                // 绘制高低线
-                ctx.beginPath();
-                ctx.moveTo(x, highY);
-                ctx.lineTo(x, lowY);
-                ctx.strokeStyle = data.close >= data.open ? '#00FF88' : '#FF4444';
-                ctx.lineWidth = 1;
-                ctx.stroke();
-                
-                // 绘制开盘收盘矩形
-                ctx.fillStyle = data.close >= data.open ? '#00FF88' : '#FF4444';
-                ctx.fillRect(x - 5, Math.min(openY, closeY), 10, Math.abs(openY - closeY));
-            });
-        }
-    });
-}

@@ -143,85 +143,167 @@
                             <option>TSLA</option>
                         </select>
                     </div>
+                    <!-- 1. 给标签按钮添加 data-tab 属性 -->
                     <div class="card-tabs">
-                        <button class="tab-btn active">Details</button>
-                        <button class="tab-btn">Profile</button>
-                        <button class="tab-btn">News</button>
+                        <button class="tab-btn active" data-tab="details">Details</button>
+                        <button class="tab-btn" data-tab="profile">Profile</button>
+                        <button class="tab-btn" data-tab="news">News</button>
                     </div>
-                    <div class="stock-details-grid">
-                        <div class="detail-item">
-                            <h3 class="detail-title">Pioneer Power Solutions, Inc.</h3>
-                            <span class="detail-price">4.29</span>
-                            <span class="detail-change negative">-0.08 (-1.83%)</span>
-                            <span class="detail-time">17/08/2025, 13:30:00</span>
+                    
+                    <!-- 2. 新增标签内容容器 -->
+                    <div class="tab-content">
+                        <!-- Details 面板 -->
+                        <div class="tab-pane active" id="details">
+                            <div class="stock-details-grid">
+                                <!-- 原有 Details 内容（不变） -->
+                                <div class="detail-item">
+                                    <h3 class="detail-title">Pioneer Power Solutions, Inc.</h3>
+                                    <span class="detail-price">4.29</span>
+                                    <span class="detail-change negative">-0.08 (-1.83%)</span>
+                                    <span class="detail-time">17/08/2025, 13:30:00</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Relative Volume</span>
+                                    <span class="detail-value">97.00M</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Float</span>
+                                    <select class="detail-select">
+                                        <option selected>8.53M</option>
+                                    </select>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Change Since January</span>
+                                    <select class="detail-select">
+                                        <option selected>01</option>
+                                    </select>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Cash</span>
+                                    <select class="detail-select">
+                                        <option selected>$25.84M</option>
+                                    </select>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Earning Date</span>
+                                    <select class="detail-select">
+                                        <option selected>11 Aug</option>
+                                    </select>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Current Debt</span>
+                                    <select class="detail-select">
+                                        <option selected>$691.00K</option>
+                                    </select>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Options Volume Today</span>
+                                    <select class="detail-select">
+                                        <option selected>0</option>
+                                    </select>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Short Float</span>
+                                    <select class="detail-select">
+                                        <option selected>0.25%</option>
+                                    </select>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Dollar Volume</span>
+                                    <select class="detail-select">
+                                        <option selected>0</option>
+                                    </select>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Shr.Out</span>
+                                    <select class="detail-select">
+                                        <option selected>112,000</option>
+                                    </select>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Revenue</span>
+                                    <select class="detail-select">
+                                        <option selected>0</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="copyright-text">
+                                2025 - Trade Ideas
+                            </div>
                         </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Relative Volume</span>
-                            <span class="detail-value">97.00M</span>
+
+                        <!-- Profile 面板 -->
+                        <div class="tab-pane" id="profile">
+                            <div class="profile-content">
+                                <div class="profile-header">
+                                    <h3 class="profile-title">Company Profile</h3>
+                                    <span class="profile-ticker">PPSI | NASDAQ</span>
+                                </div>
+                                <div class="profile-details">
+                                    <div class="profile-item">
+                                        <span class="profile-label">Industry:</span>
+                                        <span class="profile-value">Electrical Equipment & Parts</span>
+                                    </div>
+                                    <div class="profile-item">
+                                        <span class="profile-label">Sector:</span>
+                                        <span class="profile-value">Industrials</span>
+                                    </div>
+                                    <div class="profile-item">
+                                        <span class="profile-label">Headquarters:</span>
+                                        <span class="profile-value">Pittsburgh, PA, United States</span>
+                                    </div>
+                                    <div class="profile-item">
+                                        <span class="profile-label">Founded:</span>
+                                        <span class="profile-value">1903</span>
+                                    </div>
+                                    <div class="profile-item">
+                                        <span class="profile-label">Employees:</span>
+                                        <span class="profile-value">Approx. 200</span>
+                                    </div>
+                                    <div class="profile-item">
+                                        <span class="profile-label">CEO:</span>
+                                        <span class="profile-value">John D. Doe</span>
+                                    </div>
+                                    <div class="profile-description">
+                                        <span class="profile-label">Business Summary:</span>
+                                        <p class="profile-text">Pioneer Power Solutions, Inc. designs, manufactures, and distributes electrical transmission and distribution equipment. The company provides products and services for the utility, industrial, commercial, and renewable energy markets.</p>
+                                    </div>
+                                </div>
+                                <div class="copyright-text">
+                                    2025 - Trade Ideas
+                                </div>
+                            </div>
                         </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Float</span>
-                            <select class="detail-select">
-                                <option selected>8.53M</option>
-                            </select>
+
+                        <!-- News 面板 -->
+                        <div class="tab-pane" id="news">
+                            <div class="news-content">
+                                <h3 class="news-title">Latest News</h3>
+                                <div class="news-list">
+                                    <div class="news-item">
+                                        <div class="news-date">Aug 15, 2025</div>
+                                        <h4 class="news-heading">PPSI Announces Q2 2025 Financial Results</h4>
+                                        <p class="news-excerpt">Pioneer Power Solutions reported quarterly revenue of $52.3M, a 3.2% increase compared to the same period last year.</p>
+                                        <a href="#" class="news-link">Read More <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                    <div class="news-item">
+                                        <div class="news-date">Aug 10, 2025</div>
+                                        <h4 class="news-heading">PPSI Secures $15M Contract with Utility Company</h4>
+                                        <p class="news-excerpt">The company has been awarded a multi-year contract to supply electrical distribution equipment to a major US utility provider.</p>
+                                        <a href="#" class="news-link">Read More <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                    <div class="news-item">
+                                        <div class="news-date">Aug 05, 2025</div>
+                                        <h4 class="news-heading">PPSI Expands Manufacturing Facility in Pennsylvania</h4>
+                                        <p class="news-excerpt">The expansion will increase production capacity by 25% and create 50 new jobs in the local community.</p>
+                                        <a href="#" class="news-link">Read More <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="copyright-text">
+                                    2025 - Trade Ideas
+                                </div>
+                            </div>
                         </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Change Since January</span>
-                            <select class="detail-select">
-                                <option selected>01</option>
-                            </select>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Cash</span>
-                            <select class="detail-select">
-                                <option selected>$25.84M</option>
-                            </select>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Earning Date</span>
-                            <select class="detail-select">
-                                <option selected>11 Aug</option>
-                            </select>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Current Debt</span>
-                            <select class="detail-select">
-                                <option selected>$691.00K</option>
-                            </select>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Options Volume Today</span>
-                            <select class="detail-select">
-                                <option selected>0</option>
-                            </select>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Short Float</span>
-                            <select class="detail-select">
-                                <option selected>0.25%</option>
-                            </select>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Dollar Volume</span>
-                            <select class="detail-select">
-                                <option selected>0</option>
-                            </select>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Shr.Out</span>
-                            <select class="detail-select">
-                                <option selected>112,000</option>
-                            </select>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Revenue</span>
-                            <select class="detail-select">
-                                <option selected>0</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="copyright-text">
-                        2025 - Trade Ideas
                     </div>
                 </div>
             </div>
