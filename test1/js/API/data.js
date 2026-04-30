@@ -4,7 +4,7 @@
  * 存放路径：与 data.json 同一级目录
  */
 // 【二选一模式切换】
-const MODE = "TEST"; // TEST = 读本地data.json | PROD = 读浏览器缓存
+const MODE = "PROD"; // TEST = 读本地data.json | PROD = 读浏览器缓存
 const LOCAL_JSON_PATH = '../../../Backend/Data/data.json'; // 测试文件路径
 const CACHE_KEY = 'DATA_LOCAL_DATA'; // 正式缓存key
 /**

@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const quoteSelect = document.getElementById('quoteCurrency');
 
   // 2. 隐藏加载动画
-  if (loading) loading.style.display = 'none';
+//   if (loading) loading.style.display = 'none';
 
   // 核心渲染函数
   async function renderAllData(baseCur, quoteCur) {
