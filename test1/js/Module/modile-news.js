@@ -36,7 +36,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   // 图片处理（无图片则隐藏）
   const newsImg = document.querySelector('.news-full-img');
   if (news.image) {
-    newsImg.src = `/test1/${news.image}`;
+    newsImg.src = `${news.image}`;
     newsImg.alt = news.title;
   } else {
     newsImg.style.display = 'none';

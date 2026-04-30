@@ -10,8 +10,8 @@
 export async function getNewsList() {
   try {
     // 直接请求本地的 news.json 文件
-    const response = await fetch('http://localhost:63839/api/news');
-    // const response = await fetch('/Backend/Data/news.json');
+    const response = await fetch('http://127.0.0.1:54844/api/news');
+    // const response = await fetch('/Backend/Data/news-api.json');
     const newsList = await response.json();
     return newsList;
   } catch (error) {
