@@ -268,12 +268,27 @@
             <!-- 后续新闻内容先留空，第二步补 -->
             <!-- 新闻列表容器（适配原有深色样式） -->
             <div class="news-container">
-                 <!-- 新闻卡片由 index-news.js 动态渲染 -->
+                <!-- 加载动画（放在容器内，默认显示） -->
+                <div id="loading" style="position:relative;margin:50px auto;text-align:center;">
+                    <div style="width:40px;height:40px;border:4px solid #eee;border-top:4px solid #333;border-radius:50%;animation:spin 1s linear infinite;margin:0 auto;"></div>
+                </div>
+
+                <!-- 新闻内容：默认隐藏，数据加载完再显示 -->
+                <div id="news-content" style="display:none;">
+                    <!-- 新闻卡片由 index-news.js 动态渲染 -->
+                </div>
             </div>
+            <style>
+                @keyframes spin { 
+                    from { transform: rotate(0deg); } 
+                    to { transform: rotate(360deg); } 
+                }
+            </style>
         </footer>
     </div>
 
     <script src="js/script.js"></script>
     <script type="module" src="js/Module/module-index.js"></script>
+    <script type="module" src="js/API/renovate.js"></script>
 </body>
 </html>

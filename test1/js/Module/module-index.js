@@ -1,28 +1,27 @@
-// js/index-news.js
 import { getNewsList } from '../API/article.js';
 
-// 页面加载完成后渲染新闻
-window.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener('news-data-ready', async () => {
+  // 1. 获取元素
+  const loading = document.getElementById('loading');
+  const newsContent = document.getElementById('news-content');
   const newsContainer = document.querySelector('.news-container');
-  const newsList = await getNewsList();
 
+  // 2. 隐藏加载，显示新闻区域
+  if (loading) loading.style.display = 'none';
+  if (newsContent) newsContent.style.display = 'block';
+
+  const newsList = await getNewsList();
   if (!Array.isArray(newsList) || newsList.length === 0) return;
 
-  // 循环生成新闻卡片
+  // 渲染新闻到 news-content 里
   newsList.forEach(news => {
-    // 有图 / 无图 自动加类
     const cardClass = news.image ? 'news-card' : 'news-card no-img';
-
-    // 只取前两条评论
     const showComments = news.comments?.slice(0, 2) || [];
-
-    // 拼接评论HTML
     let commentHtml = '';
     showComments.forEach(item => {
       commentHtml += `<div class="comment-item">${item}</div>`;
     });
 
-    // 拼接新闻卡片HTML（完全沿用你原来的结构和样式类）
     let cardHtml = `
       <div class="${cardClass}" data-id="${news.id}">
         <div class="news-top">
@@ -32,7 +31,6 @@ window.addEventListener('DOMContentLoaded', async () => {
         <div class="news-body">
     `;
 
-    // 有图才插入图片
     if (news.image) {
       cardHtml += `<img src="${news.image}" class="news-img" alt="news">`;
     }
@@ -48,10 +46,11 @@ window.addEventListener('DOMContentLoaded', async () => {
       </div>
     `;
 
-    newsContainer.innerHTML += cardHtml;
+    // 🔥 渲染到 news-content 里
+    newsContent.innerHTML += cardHtml;
   });
 
-  // 绑定卡片点击跳转
+  // 绑定点击
   document.querySelectorAll('.news-card').forEach(card => {
     card.addEventListener('click', () => {
       const id = card.dataset.id;
