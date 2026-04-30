@@ -67,8 +67,8 @@
                         <div class="stock-info">
                             <div class="stock-icon"><i class="fas fa-circle"></i></div>
                             <!-- 货币对名称 + 代码（Xe.com API 核心字段） -->
-                            <h2 class="stock-name">US Dollar / Chinese Yuan</h2>
-                            <span class="stock-ticker">USD/CNY</span>
+                            <h2 class="stock-name"></h2>
+                            <span class="stock-ticker"></span>
                         </div>
                         <div class="card-expand-icon">
                             <i class="fas fa-expand"></i>
@@ -77,11 +77,11 @@
                     <!-- 汇率核心信息区（全部为Xe.com可获取字段） -->
                     <div class="stock-price-section">
                         <!-- 实时中间价（API字段：mid_rate） -->
-                        <span class="stock-price">7.2150</span>
+                        <span class="stock-price"></span>
                         <!-- 当日涨跌幅（API字段：daily_change_pct），默认跌红 -->
-                        <span class="stock-change negative">-0.12 (-0.02%)</span>
+                        <span class="stock-change"></span>
                         <!-- UTC时间（外汇行业标准，API字段：updated_at） -->
-                        <span class="stock-time">2026-04-29, 15:45:00 UTC</span>
+                        <span class="stock-time"></span>
                     </div>
                     <!-- 汇率走势图表（保留原有Chart.js容器，后续改折线图） -->
                     <div class="chart-container">
@@ -91,19 +91,19 @@
                     <div class="stock-metrics-grid">
                         <div class="metric-item">
                             <span class="metric-label">7D High:</span>
-                            <span class="metric-value">7.2310</span>
+                            <span class="metric-value"></span>
                         </div>
                         <div class="metric-item">
                             <span class="metric-label">7D Low:</span>
-                            <span class="metric-value">7.1980</span>
+                            <span class="metric-value"></span>
                         </div>
                         <div class="metric-item">
                             <span class="metric-label">YTD Change:</span>
-                            <span class="metric-value positive">5.33%</span>
+                            <span class="metric-value positive"></span>
                         </div>
                         <div class="metric-item">
-                            <span class="metric-label">20D Change %:</span>
-                            <span class="metric-value positive">3.85%</span>
+                            <span class="metric-label">20D Change:</span>
+                            <span class="metric-value positive"></span>
                         </div>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
                         </div>
                     </div>
                     <div class="stock-ticker-select" style="display:flex;gap:0.8rem;align-items:center;">
-                        <select class="ticker-dropdown">
+                        <select id="baseCurrency" class="ticker-dropdown">
                             <option selected>USD</option>
                             <option>EUR</option>
                             <option>GBP</option>
@@ -128,7 +128,7 @@
                             <option>CNY</option>
                         </select>
                         <span style="color:#B0B0B0;">/</span>
-                        <select class="ticker-dropdown">
+                        <select id="quoteCurrency" class="ticker-dropdown">
                             <option selected>CNY</option>
                             <option>EUR</option>
                             <option>GBP</option>
@@ -140,7 +140,7 @@
                     <div class="card-tabs">
                         <button class="tab-btn active" data-tab="details">Details</button>
                         <button class="tab-btn" data-tab="profile">Profile</button>
-                        <button class="tab-btn" data-tab="news">News</button>
+                        <!-- <button class="tab-btn" data-tab="news">News</button> -->
                     </div>
                     
                     <!-- 2. 新增标签内容容器 -->
@@ -149,34 +149,34 @@
                         <div class="tab-pane active" id="details">
                             <div class="stock-details-grid">
                                 <div class="detail-item" style="grid-column: 1 / -1; margin-bottom: 1.2rem;">
-                                    <h3 class="detail-title">US Dollar / Chinese Yuan</h3>
-                                    <span class="detail-price">7.2150</span>
-                                    <span class="detail-change negative">-0.12 (-0.02%)</span>
-                                    <span class="detail-time">2026-04-29, 15:45:00 UTC</span>
+                                    <h3 class="detail-title"></h3>
+                                    <span class="detail-price"></span>
+                                    <span class="detail-change"></span>
+                                    <span class="detail-time"></span>
                                 </div>
                                 <div class="detail-item">
                                     <span class="detail-label">Opening Rate</span>
-                                    <span class="detail-value">7.2165</span>
+                                    <span class="detail-value"></span>
                                 </div>
                                 <div class="detail-item">
                                     <span class="detail-label">Closing Rate</span>
-                                    <span class="detail-value">7.2150</span>
+                                    <span class="detail-value"></span>
                                 </div>
                                 <div class="detail-item">
                                     <span class="detail-label">24H Volume</span>
-                                    <span class="detail-value">896.7B</span>
+                                    <span class="detail-value"></span>
                                 </div>
                                 <div class="detail-item">
                                     <span class="detail-label">Bank Buy Rate</span>
-                                    <span class="detail-value">7.2140</span>
+                                    <span class="detail-value"></span>
                                 </div>
                                 <div class="detail-item">
                                     <span class="detail-label">Bank Sell Rate</span>
-                                    <span class="detail-value">7.2160</span>
+                                    <span class="detail-value"></span>
                                 </div>
                                 <div class="detail-item">
                                     <span class="detail-label">Yearly Quantile</span>
-                                    <span class="detail-value">44.21%</span>
+                                    <span class="detail-value"></span>
                                 </div>
                             </div>
                             <div class="copyright-text">
@@ -201,23 +201,6 @@
                                     <!-- 分隔线（视觉优化，可选） -->
                                     <div style="width: 100%; height: 1px; background: #333; margin: 0.8rem 0;"></div>
                                     
-                                    <!-- 汇率对比列表（适配Xe.com API，默认基准USD） -->
-                                    <div class="profile-item">
-                                        <span class="profile-label">EUR</span>
-                                        <span class="profile-value">0.8950</span>
-                                    </div>
-                                    <div class="profile-item">
-                                        <span class="profile-label">GBP</span>
-                                        <span class="profile-value">0.7820</span>
-                                    </div>
-                                    <div class="profile-item">
-                                        <span class="profile-label">CNY</span>
-                                        <span class="profile-value">7.2150</span>
-                                    </div>
-                                    <div class="profile-item">
-                                        <span class="profile-label">JPY</span>
-                                        <span class="profile-value">150.25</span>
-                                    </div>
                                 </div>
                                 <!-- 版权信息适配外汇主题 -->
                                 <div class="copyright-text">
@@ -228,7 +211,7 @@
 
 
                         <!-- News 面板 -->
-                        <div class="tab-pane" id="news">
+                        <!-- <div class="tab-pane" id="news">
                             <div class="news-content">
                                 <h3 class="news-title">Latest News</h3>
                                 <div class="news-list">
@@ -249,7 +232,7 @@
                                     2025 - Trade Ideas
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -290,5 +273,6 @@
     <script src="js/script.js"></script>
     <script type="module" src="js/Module/module-index.js"></script>
     <script type="module" src="js/API/renovate.js"></script>
+    <script type="module" src="js/Module/module-data.js"></script>
 </body>
 </html>

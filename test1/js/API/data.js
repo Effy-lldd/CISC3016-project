@@ -3,19 +3,30 @@
  * 功能：读取本地 data.json 全量货币数据 / 对接后端Java接口
  * 存放路径：与 data.json 同一级目录
  */
-
+// 【二选一模式切换】
+const MODE = "TEST"; // TEST = 读本地data.json | PROD = 读浏览器缓存
+const LOCAL_JSON_PATH = '../../../Backend/Data/data.json'; // 测试文件路径
+const CACHE_KEY = 'DATA_LOCAL_DATA'; // 正式缓存key
 /**
- * 获取【全量汇率数据】（读取本地data.json）
+ * 获取【全量汇率数据】（双模式自动切换）
  * @returns Promise<Object> 完整的汇率数据集
  */
 export async function getAllCurrencyData() {
   try {
-    // 本地读取JSON文件（对接后端时替换为 /api/data/all 即可）
-    const response = await fetch('./data.json');
-    const data = await response.json();
+    let data;
+    // 模式1：测试环境 - 读取本地JSON文件
+    if (MODE === "TEST") {
+      const response = await fetch(LOCAL_JSON_PATH);
+      data = await response.json();
+    }
+    // 模式2：正式环境 - 读取浏览器本地缓存
+    else {
+      const cached = localStorage.getItem(CACHE_KEY);
+      data = cached ? JSON.parse(cached) : null;
+    }
     return data;
   } catch (error) {
-    console.error('汇率数据请求失败：', error);
+    console.error('汇率数据读取失败：', error);
     return null;
   }
 }
@@ -58,6 +69,13 @@ export async function getDataUpdateTime() {
 
 // 全局导出
 export default {
+  getAllCurrencyData,
+  getCurrencyList,
+  getCurrencyPairData,
+  getDataUpdateTime
+};
+
+window.currencyApi = {
   getAllCurrencyData,
   getCurrencyList,
   getCurrencyPairData,
