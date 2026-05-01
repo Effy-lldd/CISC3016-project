@@ -1,1 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Deep Dive</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- 引入图标库（模拟界面图标） -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 引入Chart.js绘制K线图 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- 顶部导航栏 -->
+        <header class="header">
+            <div class="logo-section">
+                <!-- 1. 替换Logo图标：从fa-seedling（幼苗）改为fa-globe（地球，贴合外汇主题） -->
+                <div class="logo-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <!-- 2. 替换网站标题：从Stock Deep Dive改为Global Forex Insight -->
+                <h1 class="logo-text">Global Forex Insight</h1>
+                <div class="header-menu-icon">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="header-refresh-icon">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+            </div>
+            <!-- 以下搜索区、用户区代码完全不变 -->
+            <div class="search-section">
+                <input type="text" placeholder="Search currency / forex news..." class="search-input">
+            </div>
+            <div class="user-section">
+                <div class="alert-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="settings-icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <div class="user-info">
+                    <span class="username">Last Updated</span>
+                    <span class="delay-info">2026-04-29 15:45 UTC</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </header>
 
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 左侧工具栏 -->
+            <!-- <aside class="sidebar">
+                <div class="sidebar-icons">
+                    <div class="sidebar-icon active"><i class="fas fa-home"></i></div>
+                    <div class="sidebar-icon"><i class="fas fa-newspaper"></i></div>
+                    <div class="sidebar-icon"><i class="fas fa-coins"></i></div>
+                    <div class="sidebar-icon"><i class="fas fa-cog"></i></div>
+                </div>
+            </aside> -->
+
+            <!-- 右侧内容区 -->
+            <div class="content-wrapper">
+                <!-- 左侧汇率走势卡片（替换原股票K线卡片） -->
+                <div class="stock-chart-card">
+                    <div class="card-header">
+                        <div class="stock-info">
+                            <div class="stock-icon"><i class="fas fa-circle"></i></div>
+                            <!-- 货币对名称 + 代码（Xe.com API 核心字段） -->
+                            <h2 class="stock-name">US Dollar / Chinese Yuan</h2>
+                            <span class="stock-ticker">USD/CNY</span>
+                        </div>
+                        <div class="card-expand-icon">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <!-- 汇率核心信息区（全部为Xe.com可获取字段） -->
+                    <div class="stock-price-section">
+                        <!-- 实时中间价（API字段：mid_rate） -->
+                        <span class="stock-price">7.2150</span>
+                        <!-- 当日涨跌幅（API字段：daily_change_pct），默认跌红 -->
+                        <span class="stock-change negative">-0.12 (-0.02%)</span>
+                        <!-- UTC时间（外汇行业标准，API字段：updated_at） -->
+                        <span class="stock-time">2026-04-29, 15:45:00 UTC</span>
+                    </div>
+                    <!-- 汇率走势图表（保留原有Chart.js容器，后续改折线图） -->
+                    <div class="chart-container">
+                        <canvas id="stockChart"></canvas>
+                    </div>
+                    <!-- 汇率核心数据网格（按业务分组） -->
+                    <div class="stock-metrics-grid">
+                        <div class="metric-item">
+                            <span class="metric-label">7D High:</span>
+                            <span class="metric-value">7.2310</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">7D Low:</span>
+                            <span class="metric-value">7.1980</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">YTD Change:</span>
+                            <span class="metric-value positive">5.33%</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">20D Change %:</span>
+                            <span class="metric-value positive">3.85%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧股票详情卡片 -->
+                <div class="stock-details-card">
+                    <div class="card-header">
+                        <div class="stock-info">
+                            <div class="stock-icon"><i class="fas fa-circle"></i></div>
+                            <h2 class="stock-name">Stock Symbol</h2>
+                        </div>
+                        <div class="card-expand-icon">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="stock-ticker-select" style="display:flex;gap:0.8rem;align-items:center;">
+                        <select class="ticker-dropdown">
+                            <option selected>USD</option>
+                            <option>EUR</option>
+                            <option>GBP</option>
+                            <option>JPY</option>
+                            <option>CNY</option>
+                        </select>
+                        <span style="color:#B0B0B0;">/</span>
+                        <select class="ticker-dropdown">
+                            <option selected>CNY</option>
+                            <option>EUR</option>
+                            <option>GBP</option>
+                            <option>JPY</option>
+                            <option>USD</option>
+                        </select>
+                    </div>
+                    <!-- 1. 给标签按钮添加 data-tab 属性 -->
+                    <div class="card-tabs">
+                        <button class="tab-btn active" data-tab="details">Details</button>
+                        <button class="tab-btn" data-tab="profile">Profile</button>
+                        <button class="tab-btn" data-tab="news">News</button>
+                    </div>
+                    
+                    <!-- 2. 新增标签内容容器 -->
+                    <div class="tab-content">
+                        <!-- Details 面板 -->
+                        <div class="tab-pane active" id="details">
+                            <div class="stock-details-grid">
+                                <div class="detail-item" style="grid-column: 1 / -1; margin-bottom: 1.2rem;">
+                                    <h3 class="detail-title">US Dollar / Chinese Yuan</h3>
+                                    <span class="detail-price">7.2150</span>
+                                    <span class="detail-change negative">-0.12 (-0.02%)</span>
+                                    <span class="detail-time">2026-04-29, 15:45:00 UTC</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Opening Rate</span>
+                                    <span class="detail-value">7.2165</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Closing Rate</span>
+                                    <span class="detail-value">7.2150</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">24H Volume</span>
+                                    <span class="detail-value">896.7B</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Bank Buy Rate</span>
+                                    <span class="detail-value">7.2140</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Bank Sell Rate</span>
+                                    <span class="detail-value">7.2160</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Yearly Quantile</span>
+                                    <span class="detail-value">44.21%</span>
+                                </div>
+                            </div>
+                            <div class="copyright-text">
+                                2025 - Trade Ideas
+                            </div>
+                        </div>
+
+                        <!-- Profile 面板 -->
+                        <div class="tab-pane" id="profile">
+                            <div class="profile-content">
+                                <div class="profile-header">
+                                    <!-- 标题改为基准货币对比，副标题显示当前基准货币 -->
+                                    <h3 class="profile-title">Base Currency Comparison</h3>
+                                    <span class="profile-ticker">USD | Base Currency</span>
+                                </div>
+                                <div class="profile-details">
+                                    <!-- 表头（复用原有类名，仅改文本） -->
+                                    <div class="profile-item">
+                                        <span class="profile-label">Target Currency</span>
+                                        <span class="profile-value">Real-time Rate</span>
+                                    </div>
+                                    <!-- 分隔线（视觉优化，可选） -->
+                                    <div style="width: 100%; height: 1px; background: #333; margin: 0.8rem 0;"></div>
+                                    
+                                    <!-- 汇率对比列表（适配Xe.com API，默认基准USD） -->
+                                    <div class="profile-item">
+                                        <span class="profile-label">EUR</span>
+                                        <span class="profile-value">0.8950</span>
+                                    </div>
+                                    <div class="profile-item">
+                                        <span class="profile-label">GBP</span>
+                                        <span class="profile-value">0.7820</span>
+                                    </div>
+                                    <div class="profile-item">
+                                        <span class="profile-label">CNY</span>
+                                        <span class="profile-value">7.2150</span>
+                                    </div>
+                                    <div class="profile-item">
+                                        <span class="profile-label">JPY</span>
+                                        <span class="profile-value">150.25</span>
+                                    </div>
+                                </div>
+                                <!-- 版权信息适配外汇主题 -->
+                                <div class="copyright-text">
+                                    2026 - Global Forex Insight | Data from Xe.com
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- News 面板 -->
+                        <div class="tab-pane" id="news">
+                            <div class="news-content">
+                                <h3 class="news-title">Latest News</h3>
+                                <div class="news-list">
+                                    <div class="news-item">
+                                        <div class="news-date">Aug 15, 2025</div>
+                                        <h4 class="news-heading">PPSI Announces Q2 2025 Financial Results</h4>
+                                        <p class="news-excerpt">Pioneer Power Solutions reported quarterly revenue of $52.3M, a 3.2% increase compared to the same period last year.</p>
+                                        <a href="#" class="news-link">Read More <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                    <div class="news-item">
+                                        <div class="news-date">Aug 10, 2025</div>
+                                        <h4 class="news-heading">PPSI Secures $15M Contract with Utility Company</h4>
+                                        <p class="news-excerpt">The company has been awarded a multi-year contract to supply electrical distribution equipment to a major US utility provider.</p>
+                                        <a href="#" class="news-link">Read More <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="copyright-text">
+                                    2025 - Trade Ideas
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="competitors-card">
+            <div class="card-header">
+                <div class="stock-info">
+                    <div class="stock-icon"><i class="fas fa-newspaper"></i></div>
+                    <h2 class="stock-name">Forex Global Latest News</h2>
+                </div>
+                <div class="card-expand-icon">
+                    <i class="fas fa-expand"></i>
+                </div>
+            </div>
+            <!-- 后续新闻内容先留空，第二步补 -->
+            <!-- 新闻列表容器（适配原有深色样式） -->
+            <div class="news-container">
+                <!-- 加载动画（放在容器内，默认显示） -->
+                <div id="loading" style="position:relative;margin:50px auto;text-align:center;">
+                    <div style="width:40px;height:40px;border:4px solid #eee;border-top:4px solid #333;border-radius:50%;animation:spin 1s linear infinite;margin:0 auto;"></div>
+                </div>
+
+                <!-- 新闻内容：默认隐藏，数据加载完再显示 -->
+                <div id="news-content" style="display:none;">
+                    <!-- 新闻卡片由 index-news.js 动态渲染 -->
+                </div>
+            </div>
+            <style>
+                @keyframes spin { 
+                    from { transform: rotate(0deg); } 
+                    to { transform: rotate(360deg); } 
+                }
+            </style>
+        </footer>
+    </div>
+
+    <!-- 修复：引入搜索词典工具脚本[cite: 2] -->
+    <script src="js/Tools/search.js"></script>
+    <script src="js/script.js"></script>
+    <script type="module" src="js/Module/module-index.js"></script>
+    <script type="module" src="js/API/renovate.js"></script>
+</body>
+</html>
