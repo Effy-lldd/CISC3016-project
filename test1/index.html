@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Deep Dive</title>
+    <title>Global Forex Insight</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- 引入图标库（模拟界面图标） -->
+    <!-- 引入图标库 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- 引入Chart.js绘制K线图 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
@@ -15,11 +15,9 @@
         <!-- 顶部导航栏 -->
         <header class="header">
             <div class="logo-section">
-                <!-- 1. 替换Logo图标：从fa-seedling（幼苗）改为fa-globe（地球，贴合外汇主题） -->
                 <div class="logo-icon">
                     <i class="fas fa-globe"></i>
                 </div>
-                <!-- 2. 替换网站标题：从Stock Deep Dive改为Global Forex Insight -->
                 <h1 class="logo-text">Global Forex Insight</h1>
                 <div class="header-menu-icon">
                     <i class="fas fa-bars"></i>
@@ -28,10 +26,12 @@
                     <i class="fas fa-sync-alt"></i>
                 </div>
             </div>
-            <!-- 以下搜索区、用户区代码完全不变 -->
+
+            <!-- 搜索区：满足拼写检查功能入口 (Requirement 5)[cite: 7, 10] -->
             <div class="search-section">
                 <input type="text" placeholder="Search financial terms (e.g., MACD)..." class="search-input">
             </div>
+
             <div class="user-section">
                 <div class="alert-icon">
                     <i class="fas fa-bell"></i>
@@ -49,24 +49,12 @@
 
         <!-- 主内容区 -->
         <main class="main-content">
-            <!-- 左侧工具栏 -->
-            <!-- <aside class="sidebar">
-                <div class="sidebar-icons">
-                    <div class="sidebar-icon active"><i class="fas fa-home"></i></div>
-                    <div class="sidebar-icon"><i class="fas fa-newspaper"></i></div>
-                    <div class="sidebar-icon"><i class="fas fa-coins"></i></div>
-                    <div class="sidebar-icon"><i class="fas fa-cog"></i></div>
-                </div>
-            </aside> -->
-
-            <!-- 右侧内容区 -->
             <div class="content-wrapper">
-                <!-- 左侧汇率走势卡片（替换原股票K线卡片） -->
+                <!-- 左侧汇率走势卡片 -->
                 <div class="stock-chart-card">
                     <div class="card-header">
                         <div class="stock-info">
                             <div class="stock-icon"><i class="fas fa-circle"></i></div>
-                            <!-- 货币对名称 + 代码（Xe.com API 核心字段） -->
                             <h2 class="stock-name"></h2>
                             <span class="stock-ticker"></span>
                         </div>
@@ -74,20 +62,14 @@
                             <i class="fas fa-expand"></i>
                         </div>
                     </div>
-                    <!-- 汇率核心信息区（全部为Xe.com可获取字段） -->
                     <div class="stock-price-section">
-                        <!-- 实时中间价（API字段：mid_rate） -->
                         <span class="stock-price"></span>
-                        <!-- 当日涨跌幅（API字段：daily_change_pct），默认跌红 -->
                         <span class="stock-change"></span>
-                        <!-- UTC时间（外汇行业标准，API字段：updated_at） -->
                         <span class="stock-time"></span>
                     </div>
-                    <!-- 汇率走势图表（保留原有Chart.js容器，后续改折线图） -->
                     <div class="chart-container">
                         <canvas id="stockChart"></canvas>
                     </div>
-                    <!-- 汇率核心数据网格（按业务分组） -->
                     <div class="stock-metrics-grid">
                         <div class="metric-item">
                             <span class="metric-label">7D High:</span>
@@ -108,12 +90,12 @@
                     </div>
                 </div>
 
-                <!-- 右侧股票详情卡片 -->
+                <!-- 右侧汇率详情卡片 -->
                 <div class="stock-details-card">
                     <div class="card-header">
                         <div class="stock-info">
                             <div class="stock-icon"><i class="fas fa-circle"></i></div>
-                            <h2 class="stock-name">Stock Symbol</h2>
+                            <h2 class="stock-name">Currency Pair</h2>
                         </div>
                         <div class="card-expand-icon">
                             <i class="fas fa-expand"></i>
@@ -136,14 +118,12 @@
                             <option>USD</option>
                         </select>
                     </div>
-                    <!-- 1. 给标签按钮添加 data-tab 属性 -->
+                    
                     <div class="card-tabs">
                         <button class="tab-btn active" data-tab="details">Details</button>
                         <button class="tab-btn" data-tab="profile">Profile</button>
-                        <!-- <button class="tab-btn" data-tab="news">News</button> -->
                     </div>
                     
-                    <!-- 2. 新增标签内容容器 -->
                     <div class="tab-content">
                         <!-- Details 面板 -->
                         <div class="tab-pane active" id="details">
@@ -179,64 +159,32 @@
                                     <span class="detail-value"></span>
                                 </div>
                             </div>
-                            <div class="copyright-text">
-                                2025 - Trade Ideas
-                            </div>
+                            <div class="copyright-text">2026 - Global Forex Insight</div>
                         </div>
 
                         <!-- Profile 面板 -->
                         <div class="tab-pane" id="profile">
                             <div class="profile-content">
                                 <div class="profile-header">
-                                    <!-- 标题改为基准货币对比，副标题显示当前基准货币 -->
                                     <h3 class="profile-title">Base Currency Comparison</h3>
-                                    <span class="profile-ticker">USD | Base Currency</span>
+                                    <span class="profile-ticker">Currency Rates | Global View</span>
                                 </div>
                                 <div class="profile-details">
-                                    <!-- 表头（复用原有类名，仅改文本） -->
                                     <div class="profile-item">
                                         <span class="profile-label">Target Currency</span>
                                         <span class="profile-value">Real-time Rate</span>
                                     </div>
-                                    <!-- 分隔线（视觉优化，可选） -->
-                                    <div style="width: 100%; height: 1px; background: #333; margin:  0 0 0.2rem;"></div>   
+                                    <div style="width: 100%; height: 1px; background: #333; margin: 0 0 0.2rem;"></div>   
                                 </div>
-                                <!-- 版权信息适配外汇主题 -->
-                                <div class="copyright-text">
-                                    2026 - Global Forex Insight | Data from Xe.com
-                                </div>
+                                <div class="copyright-text">Data from ExchangeRate-API</div>
                             </div>
                         </div>
-
-
-                        <!-- News 面板 -->
-                        <!-- <div class="tab-pane" id="news">
-                            <div class="news-content">
-                                <h3 class="news-title">Latest News</h3>
-                                <div class="news-list">
-                                    <div class="news-item">
-                                        <div class="news-date">Aug 15, 2025</div>
-                                        <h4 class="news-heading">PPSI Announces Q2 2025 Financial Results</h4>
-                                        <p class="news-excerpt">Pioneer Power Solutions reported quarterly revenue of $52.3M, a 3.2% increase compared to the same period last year.</p>
-                                        <a href="#" class="news-link">Read More <i class="fas fa-arrow-right"></i></a>
-                                    </div>
-                                    <div class="news-item">
-                                        <div class="news-date">Aug 10, 2025</div>
-                                        <h4 class="news-heading">PPSI Secures $15M Contract with Utility Company</h4>
-                                        <p class="news-excerpt">The company has been awarded a multi-year contract to supply electrical distribution equipment to a major US utility provider.</p>
-                                        <a href="#" class="news-link">Read More <i class="fas fa-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                                <div class="copyright-text">
-                                    2025 - Trade Ideas
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
             </div>
         </main>
 
+        <!-- 底部新闻板块 -->
         <footer class="competitors-card">
             <div class="card-header">
                 <div class="stock-info">
@@ -247,28 +195,25 @@
                     <i class="fas fa-expand"></i>
                 </div>
             </div>
-            <!-- 后续新闻内容先留空，第二步补 -->
-            <!-- 新闻列表容器（适配原有深色样式） -->
             <div class="news-container">
-                <!-- 加载动画（放在容器内，默认显示） -->
                 <div id="loading" style="position:relative;margin:50px auto;text-align:center;">
-                    <div style="width:40px;height:40px;border:4px solid #eee;border-top:4px solid #333;border-radius:50%;animation:spin 1s linear infinite;margin:0 auto;"></div>
+                    <div class="spinner"></div>
                 </div>
-
-                <!-- 新闻内容：默认隐藏，数据加载完再显示 -->
-                <div id="news-content" style="display:none;">
-                    <!-- 新闻卡片由 index-news.js 动态渲染 -->
-                </div>
+                <div id="news-content" style="display:none;"></div>
             </div>
-            <style>
-                @keyframes spin { 
-                    from { transform: rotate(0deg); } 
-                    to { transform: rotate(360deg); } 
-                }
-            </style>
         </footer>
     </div>
 
+    <style>
+        .spinner {
+            width: 40px; height: 40px; border: 4px solid #eee;
+            border-top: 4px solid #333; border-radius: 50%;
+            animation: spin 1s linear infinite; margin: 0 auto;
+        }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    </style>
+
+    <!-- 脚本引用区：确保 search.js 在最前面，不干扰后续 module 加载[cite: 9, 10] -->
     <script src="js/Tools/search.js"></script>
     <script src="js/script.js"></script>
     <script type="module" src="js/Module/module-index.js"></script>
