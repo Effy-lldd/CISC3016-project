@@ -292,3 +292,20 @@
     <script type="module" src="js/API/renovate.js"></script>
 </body>
 </html>
+
+<!-- 这里的代码位于 index.html 的最底部 -->
+    
+    <!-- 1. 基础工具类脚本（非模块） -->
+    <script src="js/script.js"></script>
+    
+    <!-- 2. 你组员建议的功能扩展脚本[cite: 3, 10] -->
+    <!-- 放在这里可以确保它在 search-input 元素加载后执行 -->
+    <script src="js/Tools/search.js"></script> 
+
+    <!-- 3. 复杂的业务逻辑模块 (type="module")[cite: 4] -->
+    <!-- 模块脚本默认带有 defer 属性，会最后执行 -->
+    <script type="module" src="js/Module/module-index.js"></script>
+    <script type="module" src="js/API/renovate.js"></script>
+
+</body>
+</html>
