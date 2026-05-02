@@ -1,6 +1,6 @@
 // 路径：test1/js/API/api-sync.js
 // ==================== 配置项 ====================
-const MODE = "PROD"; // 切换模式："TEST" 读本地文件 | "PROD" 读后端 API
+const MODE = "TEST"; // 切换模式："TEST" 读本地文件 | "PROD" 读后端 API
 
 // 本地文件路径（TEST 模式使用）
 const LOCAL_DATA_PATH = './source/datas/data.json';   // 外汇数据本地文件
