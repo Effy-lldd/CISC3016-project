@@ -130,3 +130,39 @@ body {
 .close-btn:hover {
     color: var(--accent-yellow);
 }
+
+
+/* 朗读按钮样式 - 增强设计感 */
+.read-aloud-btn {
+    background: linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary));
+    color: var(--text-primary);
+    border: 1px solid var(--accent-yellow);
+    border-radius: 40px;
+    padding: 0.6rem 1.4rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    margin-bottom: 1.2rem;
+}
+
+.read-aloud-btn i {
+    font-size: 0.9rem;
+}
+
+.read-aloud-btn:hover {
+    background: var(--accent-yellow);
+    color: var(--bg-primary);
+    border-color: var(--accent-yellow);
+    /* transform: translateY(-2px); */
+    box-shadow: 0 4px 12px rgba(230,255,0,0.2);
+}
+
+.read-aloud-btn:active {
+    transform: translateY(0);
+}

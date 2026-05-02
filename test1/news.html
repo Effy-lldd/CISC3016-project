@@ -9,6 +9,14 @@
     <!-- 图标库 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- 新增：ONNX 推理引擎 + 音频处理 -->
+     <script type="importmap">
+        {
+            "imports": {
+            "@edge-tts/universal": "https://cdn.jsdelivr.net/npm/@edge-tts/universal@1.2.3/dist/browser/index.js"
+            }
+        }
+    </script>
+</head>
 <body>
     <!-- 返回按钮 -->
     <button class="back-btn" id="backBtn">
@@ -20,10 +28,12 @@
     <div class="news-source"></div>
     
     <!-- 音频播放 -->
-    <audio class="audio-player" controls>
+    <!-- <audio class="audio-player" controls>
         <source src="" type="audio/mpeg">
         Your browser does not support audio playback.
-    </audio>
+    </audio> -->
+
+    <!-- <button id="readAloudBtn" class="read-aloud-btn">🔊 朗读全文</button> -->
 
     <!-- 新闻配图 -->
     <img src="" alt="News Image" class="news-full-img">

@@ -44,30 +44,67 @@ window.addEventListener('DOMContentLoaded', async () => {
     commentList.appendChild(div);
   });
 
-  // 图片放大
-  // const modal = document.getElementById('imgModal');
-  // const modalImg = document.getElementById('modalImg');
-  // const closeBtn = document.querySelector('.close-btn');
-  // newsImg.onclick = () => { modal.style.display = 'block'; modalImg.src = newsImg.src; };
-  // closeBtn.onclick = () => modal.style.display = 'none';
-  // modal.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
 
-  // 返回按钮
-  // document.getElementById('backBtn').onclick = () => window.history.back();
+  // ========== 实时朗读（Web Speech API）==========
+  const fullText = `${news.title}. ${news.content.replace(/<[^>]*>/g, '')}`;
+  if (!fullText.trim()) return;
 
-  // ===================== 👇 仅这一段是语音代码（极简！） =====================
-  // const audio = document.querySelector('.audio-player');
-  // const synth = window.speechSynthesis;
-  // const text = document.querySelector('.news-full-title').innerText + '. ' + document.querySelector('.news-full-content').innerText;
-  
-  // // 初始化英文语音
-  // const utterance = new SpeechSynthesisUtterance(text);
-  // utterance.lang = 'en-US';
+  // 获取或创建朗读按钮
+  let readBtn = document.getElementById('readAloudBtn');
+  if (!readBtn) {
+    readBtn = document.createElement('button');
+    readBtn.id = 'readAloudBtn';
+    readBtn.className = 'read-aloud-btn';
+    // 使用 Font Awesome 图标 + 英文文字
+    readBtn.innerHTML = '<i class="fas fa-play"></i> Read Aloud';
+    const titleEl = document.querySelector('.news-full-title');
+    if (titleEl) titleEl.insertAdjacentElement('afterend', readBtn);
+  }
 
-  // // 绑定播放器按钮（核心）
-  // audio.onplay = () => synth.speak(utterance);
-  // audio.onpause = () => synth.pause();
-  // audio.onvolumechange = () => utterance.volume = audio.volume;
-  // audio.onratechange = () => utterance.rate = audio.playbackRate;
-  // // ===================== 👆 语音代码结束 =====================
+  let isSpeaking = false;
+  let utterance = null;
+
+  function stopReading() {
+    if (window.speechSynthesis.speaking) {
+      window.speechSynthesis.cancel();
+    }
+    if (utterance) {
+      utterance.onend = null;
+      utterance.onerror = null;
+      utterance = null;
+    }
+    isSpeaking = false;
+    readBtn.innerHTML = '<i class="fas fa-play"></i> Read Aloud';
+  }
+
+  function startReading() {
+    stopReading(); // 确保任何正在进行的朗读被停止
+    utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'en-US';
+    utterance.rate = 0.9;
+    utterance.pitch = 1.0;
+    utterance.volume = 0.2;
+    utterance.onend = () => {
+      isSpeaking = false;
+      readBtn.innerHTML = '<i class="fas fa-play"></i> Read Aloud';
+      utterance = null;
+    };
+    utterance.onerror = (err) => {
+      console.warn('朗读出错', err);
+      isSpeaking = false;
+      readBtn.innerHTML = '<i class="fas fa-play"></i> Read Aloud';
+      utterance = null;
+    };
+    window.speechSynthesis.speak(utterance);
+    isSpeaking = true;
+    readBtn.innerHTML = '<i class="fas fa-stop"></i> Stop';
+  }
+
+  readBtn.addEventListener('click', () => {
+    if (isSpeaking) {
+      stopReading();
+    } else {
+      startReading();
+    }
+  });
 });
