@@ -1,5 +1,16 @@
 import { getNewsList } from '../API/article.js';
 
+// ========== 新增：加载点击音效（WAV 文件） ==========
+// 请将 'assets/sounds/click.wav' 替换为你实际的 WAV 文件路径
+const clickSound = new Audio('../../test1/source/sounds/page.wav');
+clickSound.volume = 0.3;  // 音量可调，范围 0~1
+
+function playNewsClickSound() {
+    clickSound.currentTime = 0;  // 重置播放位置，允许快速连点
+    clickSound.play().catch(e => console.debug('新闻点击音效播放失败:', e));
+}
+// =================================================
+
 window.addEventListener('news-data-ready', async () => {
   // 1. 获取元素
   const loading = document.getElementById('loading');
@@ -46,13 +57,16 @@ window.addEventListener('news-data-ready', async () => {
       </div>
     `;
 
-    // 🔥 渲染到 news-content 里
+    // 渲染到 news-content 里
     newsContent.innerHTML += cardHtml;
   });
 
   // 绑定点击
   document.querySelectorAll('.news-card').forEach(card => {
     card.addEventListener('click', () => {
+      // ========== 新增：播放点击音效 ==========
+      playNewsClickSound();
+      // ======================================
       const id = card.dataset.id;
       window.open(`news.html?id=${id}`, '_blank');
     });

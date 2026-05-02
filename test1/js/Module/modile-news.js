@@ -1,7 +1,6 @@
 // test1/js/Module/news-detail.js
 import { getNewsDetailById } from '../API/article.js';
 
-// 页面加载后执行
 window.addEventListener('DOMContentLoaded', async () => {
   // 1. 获取地址栏中的新闻ID
   const urlParams = new URLSearchParams(window.location.search);
@@ -23,17 +22,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   document.querySelector('.news-full-title').textContent = news.title;
   document.querySelector('.news-source').textContent = `${news.source} · Published: ${news.publishTime}`;
 
-  // 音频处理（无音频则隐藏）
-  const audioPlayer = document.querySelector('.audio-player');
-  const audioSource = audioPlayer.querySelector('source');
-  if (news.audioUrl) {
-    audioSource.src = news.audioUrl;
-    audioPlayer.load();
-  } else {
-    audioPlayer.style.display = 'none';
-  }
-
-  // 图片处理（无图片则隐藏）
+  // 图片处理
   const newsImg = document.querySelector('.news-full-img');
   if (news.image) {
     newsImg.src = `${news.image}`;
@@ -45,7 +34,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   // 新闻正文
   document.querySelector('.news-full-content').innerHTML = news.content.replace(/\n/g, '<br><br>');
 
-  // 专家评论（最多3条）
+  // 专家评论
   const commentList = document.querySelector('.comment-list');
   const comments = news.comments?.slice(0, 3) || [];
   comments.forEach(item => {
@@ -55,21 +44,30 @@ window.addEventListener('DOMContentLoaded', async () => {
     commentList.appendChild(div);
   });
 
-  // 4. 保留原有图片放大功能
-  const modal = document.getElementById('imgModal');
-  const modalImg = document.getElementById('modalImg');
-  const closeBtn = document.querySelector('.close-btn');
+  // 图片放大
+  // const modal = document.getElementById('imgModal');
+  // const modalImg = document.getElementById('modalImg');
+  // const closeBtn = document.querySelector('.close-btn');
+  // newsImg.onclick = () => { modal.style.display = 'block'; modalImg.src = newsImg.src; };
+  // closeBtn.onclick = () => modal.style.display = 'none';
+  // modal.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
 
-  newsImg.onclick = () => {
-    modal.style.display = 'block';
-    modalImg.src = newsImg.src;
-  };
-
-  closeBtn.onclick = () => modal.style.display = 'none';
-  modal.onclick = (e) => {
-    if (e.target === modal) modal.style.display = 'none';
-  };
-
-  // 5. 返回按钮
+  // 返回按钮
   document.getElementById('backBtn').onclick = () => window.history.back();
+
+  // ===================== 👇 仅这一段是语音代码（极简！） =====================
+  const audio = document.querySelector('.audio-player');
+  const synth = window.speechSynthesis;
+  const text = document.querySelector('.news-full-title').innerText + '. ' + document.querySelector('.news-full-content').innerText;
+  
+  // 初始化英文语音
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = 'en-US';
+
+  // 绑定播放器按钮（核心）
+  audio.onplay = () => synth.speak(utterance);
+  audio.onpause = () => synth.pause();
+  audio.onvolumechange = () => utterance.volume = audio.volume;
+  audio.onratechange = () => utterance.rate = audio.playbackRate;
+  // ===================== 👆 语音代码结束 =====================
 });

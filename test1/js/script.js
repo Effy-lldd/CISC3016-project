@@ -5,7 +5,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // 2. 绑定标签切换事件
     bindTabEvents();
     // 3. 绑定侧边栏图标点击事件
-    bindSidebarEvents();
+    // bindSidebarEvents();
+
+        // 预激活音频（可选）
+    const silentAudio = new Audio('../test1/source/sounds/click2.mp3');
+    silentAudio.volume = 0;
+    const activateAudio = () => {
+        silentAudio.play().catch(() => {});
+        window.removeEventListener('click', activateAudio);
+        window.removeEventListener('touchstart', activateAudio);
+    };
+    window.addEventListener('click', activateAudio, { once: true });
+    window.addEventListener('touchstart', activateAudio, { once: true });
 });
 
 /**
@@ -75,11 +86,15 @@ async function initStockChart() {
  * 绑定标签切换事件（核心修改）
  */
 function bindTabEvents() {
+    const clickSound = new Audio('../test1/source/sounds/click2.mp3'); // 路径按实际调整
+    clickSound.volume = 1;                                 // 音量 0~1
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabPanes = document.querySelectorAll('.tab-pane');
     
     tabBtns.forEach(btn => {
         btn.addEventListener('click', function() {
+            clickSound.currentTime = 0;   // 重置播放位置，允许快速连点
+            clickSound.play().catch(e => console.debug('音频播放失败:', e));
             // 1. 移除所有标签的active类
             tabBtns.forEach(b => b.classList.remove('active'));
             // 2. 给当前点击的标签添加active类
@@ -108,20 +123,20 @@ function bindTabEvents() {
 /**
  * 绑定侧边栏图标点击事件
  */
-function bindSidebarEvents() {
-    const sidebarIcons = document.querySelectorAll('.sidebar-icon');
+// function bindSidebarEvents() {
+//     const sidebarIcons = document.querySelectorAll('.sidebar-icon');
     
-    sidebarIcons.forEach(icon => {
-        icon.addEventListener('click', function() {
-            // 移除所有图标的active类
-            sidebarIcons.forEach(i => i.classList.remove('active'));
-            // 给当前点击的图标添加active类
-            this.classList.add('active');
+//     sidebarIcons.forEach(icon => {
+//         icon.addEventListener('click', function() {
+//             // 移除所有图标的active类
+//             sidebarIcons.forEach(i => i.classList.remove('active'));
+//             // 给当前点击的图标添加active类
+//             this.classList.add('active');
             
-            // 这里可以扩展：根据图标切换不同的主内容
-            const iconType = this.querySelector('i').classList[1];
-            console.log(`点击了侧边栏图标: ${iconType}`);
-        });
-    });
-}
+//             // 这里可以扩展：根据图标切换不同的主内容
+//             const iconType = this.querySelector('i').classList[1];
+//             console.log(`点击了侧边栏图标: ${iconType}`);
+//         });
+//     });
+// }
 
