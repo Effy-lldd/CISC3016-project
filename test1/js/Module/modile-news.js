@@ -53,7 +53,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   // modal.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
 
   // 返回按钮
-  document.getElementById('backBtn').onclick = () => window.history.back();
+  // document.getElementById('backBtn').onclick = () => window.history.back();
 
   // ===================== 👇 仅这一段是语音代码（极简！） =====================
   const audio = document.querySelector('.audio-player');

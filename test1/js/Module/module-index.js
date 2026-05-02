@@ -63,12 +63,19 @@ window.addEventListener('news-data-ready', async () => {
 
   // 绑定点击
   document.querySelectorAll('.news-card').forEach(card => {
+    // card.addEventListener('click', () => {
+    //   // ========== 新增：播放点击音效 ==========
+    //   playNewsClickSound();
+    //   // ======================================
+    //   const id = card.dataset.id;
+    //   window.open(`news.html?id=${id}`, '_blank');
+    // });
     card.addEventListener('click', () => {
-      // ========== 新增：播放点击音效 ==========
       playNewsClickSound();
-      // ======================================
       const id = card.dataset.id;
-      window.open(`news.html?id=${id}`, '_blank');
+      setTimeout(() => {
+        window.location.href = `news.html?id=${id}`;
+      }, 150);
     });
   });
 });

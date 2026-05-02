@@ -1,6 +1,6 @@
 // 路径：test1/js/API/news.js
 // 【二选一模式切换】
-const MODE = "TEST"; // TEST = 读本地JSON文件 | PROD = 读浏览器缓存
+const MODE = "PROD"; // TEST = 读本地JSON文件 | PROD = 读浏览器缓存
 const LOCAL_JSON_PATH = '../../../Backend/Data/news.json'; // 测试文件路径，请根据实际存放位置调整
 const CACHE_KEY = 'NEWS_LOCAL_DATA';
 
