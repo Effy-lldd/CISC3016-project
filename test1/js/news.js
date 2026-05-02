@@ -7,9 +7,9 @@ const backBtn = document.getElementById('backBtn');
 
 // ========== 新增：加载点击音效（WAV 文件） ==========
 // 请将 'assets/sounds/click.wav' 替换为你实际的 WAV 文件路径
-const clickSound1 = new Audio('../test1/source/sounds/click2.mp3'); // 路径按实际调整
+const clickSound1 = new Audio('./source/sounds/click2.mp3'); // 路径按实际调整
 clickSound1.volume = 1;       
-const clickSound = new Audio('../test1/source/sounds/page.wav');
+const clickSound = new Audio('./source/sounds/page.wav');
 clickSound.volume = 0.3;  // 音量可调，范围 0~1
 
 function playNewsClickSound() {

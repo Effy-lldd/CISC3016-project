@@ -2,7 +2,7 @@ import { getNewsList } from '../API/article.js';
 
 // ========== 新增：加载点击音效（WAV 文件） ==========
 // 请将 'assets/sounds/click.wav' 替换为你实际的 WAV 文件路径
-const clickSound = new Audio('../../test1/source/sounds/page.wav');
+const clickSound = new Audio('./source/sounds/page.wav');
 clickSound.volume = 0.3;  // 音量可调，范围 0~1
 
 function playNewsClickSound() {

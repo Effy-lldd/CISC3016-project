@@ -3,8 +3,8 @@
 const MODE = "TEST"; // 切换模式："TEST" 读本地文件 | "PROD" 读后端 API
 
 // 本地文件路径（TEST 模式使用）
-const LOCAL_DATA_PATH = '../../../Backend/Data/data.json';   // 外汇数据本地文件
-const LOCAL_NEWS_PATH = '../../../Backend/Data/news.json';  // 新闻数据本地文件
+const LOCAL_DATA_PATH = './source/datas/data.json';   // 外汇数据本地文件
+const LOCAL_NEWS_PATH = './source/datas/news.json';  // 新闻数据本地文件
 
 // 新闻接口（原有，AI慢接口）
 const NEWS_API_URL = 'http://127.0.0.1:54844/api/news';

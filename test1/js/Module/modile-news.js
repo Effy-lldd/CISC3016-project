@@ -56,18 +56,18 @@ window.addEventListener('DOMContentLoaded', async () => {
   // document.getElementById('backBtn').onclick = () => window.history.back();
 
   // ===================== 👇 仅这一段是语音代码（极简！） =====================
-  const audio = document.querySelector('.audio-player');
-  const synth = window.speechSynthesis;
-  const text = document.querySelector('.news-full-title').innerText + '. ' + document.querySelector('.news-full-content').innerText;
+  // const audio = document.querySelector('.audio-player');
+  // const synth = window.speechSynthesis;
+  // const text = document.querySelector('.news-full-title').innerText + '. ' + document.querySelector('.news-full-content').innerText;
   
-  // 初始化英文语音
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = 'en-US';
+  // // 初始化英文语音
+  // const utterance = new SpeechSynthesisUtterance(text);
+  // utterance.lang = 'en-US';
 
-  // 绑定播放器按钮（核心）
-  audio.onplay = () => synth.speak(utterance);
-  audio.onpause = () => synth.pause();
-  audio.onvolumechange = () => utterance.volume = audio.volume;
-  audio.onratechange = () => utterance.rate = audio.playbackRate;
-  // ===================== 👆 语音代码结束 =====================
+  // // 绑定播放器按钮（核心）
+  // audio.onplay = () => synth.speak(utterance);
+  // audio.onpause = () => synth.pause();
+  // audio.onvolumechange = () => utterance.volume = audio.volume;
+  // audio.onratechange = () => utterance.rate = audio.playbackRate;
+  // // ===================== 👆 语音代码结束 =====================
 });

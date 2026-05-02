@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // bindSidebarEvents();
 
         // 预激活音频（可选）
-    const silentAudio = new Audio('../test1/source/sounds/click2.mp3');
+    const silentAudio = new Audio('./source/sounds/click2.mp3');
     silentAudio.volume = 0;
     const activateAudio = () => {
         silentAudio.play().catch(() => {});
@@ -86,7 +86,7 @@ async function initStockChart() {
  * 绑定标签切换事件（核心修改）
  */
 function bindTabEvents() {
-    const clickSound = new Audio('../test1/source/sounds/click2.mp3'); // 路径按实际调整
+    const clickSound = new Audio('./source/sounds/click2.mp3'); // 路径按实际调整
     clickSound.volume = 1;                                 // 音量 0~1
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabPanes = document.querySelectorAll('.tab-pane');

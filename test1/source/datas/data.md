@@ -1,0 +1,689 @@
+# data.json
+```json
+{
+  "updateTime": "2026-04-29 15:45:00 UTC",
+  "currencyList": ["USD", "EUR", "GBP", "JPY", "CNY"],
+  "allCurrencyPairs": [
+    {
+      "baseCurrency": "USD",
+      "quoteCurrency": "EUR",
+      "realTimeRate": "0.8950",
+      "rateChange": "-0.0012",
+      "rateChangePercent": "-0.13%",
+      "leftPanel": {
+        "sevenDayHigh": "0.9020",
+        "sevenDayLow": "0.8910",
+        "ytdChange": "-2.15%",
+        "twentyDayChange": "-0.85%"
+      },
+      "rightDetail": {
+        "openingRate": "0.8962",
+        "closingRate": "0.8950",
+        "volume24h": "720.3B",
+        "bankBuyRate": "0.8945",
+        "bankSellRate": "0.8955",
+        "yearlyQuantile": "38.60%"
+      },
+      "historyData": [
+        {"date": "2026-04-22", "rate": "0.8980"},
+        {"date": "2026-04-23", "rate": "0.8970"},
+        {"date": "2026-04-24", "rate": "0.8965"},
+        {"date": "2026-04-25", "rate": "0.8955"},
+        {"date": "2026-04-26", "rate": "0.8960"},
+        {"date": "2026-04-27", "rate": "0.8952"},
+        {"date": "2026-04-28", "rate": "0.8950"},
+        {"date": "2026-04-29", "rate": "0.8950"}
+      ]
+    },
+    {
+      "baseCurrency": "USD",
+      "quoteCurrency": "GBP",
+      "realTimeRate": "0.7820",
+      "rateChange": "-0.0008",
+      "rateChangePercent": "-0.10%",
+      "leftPanel": {
+        "sevenDayHigh": "0.7880",
+        "sevenDayLow": "0.7790",
+        "ytdChange": "-1.20%",
+        "twentyDayChange": "0.45%"
+      },
+      "rightDetail": {
+        "openingRate": "0.7828",
+        "closingRate": "0.7820",
+        "volume24h": "510.2B",
+        "bankBuyRate": "0.7815",
+        "bankSellRate": "0.7825",
+        "yearlyQuantile": "41.30%"
+      },
+      "historyData": [
+        {"date": "2026-04-22", "rate": "0.7840"},
+        {"date": "2026-04-23", "rate": "0.7835"},
+        {"date": "2026-04-24", "rate": "0.7830"},
+        {"date": "2026-04-25", "rate": "0.7825"},
+        {"date": "2026-04-26", "rate": "0.7832"},
+        {"date": "2026-04-27", "rate": "0.7823"},
+        {"date": "2026-04-28", "rate": "0.7820"},
+        {"date": "2026-04-29", "rate": "0.7820"}
+      ]
+    },
+    {
+      "baseCurrency": "USD",
+      "quoteCurrency": "JPY",
+      "realTimeRate": "150.25",
+      "rateChange": "0.35",
+      "rateChangePercent": "0.23%",
+      "leftPanel": {
+        "sevenDayHigh": "151.80",
+        "sevenDayLow": "149.60",
+        "ytdChange": "3.20%",
+        "twentyDayChange": "1.85%"
+      },
+      "rightDetail": {
+        "openingRate": "149.90",
+        "closingRate": "150.25",
+        "volume24h": "680.5B",
+        "bankBuyRate": "150.10",
+        "bankSellRate": "150.40",
+        "yearlyQuantile": "52.70%"
+      },
+      "historyData": [
+        {"date": "2026-04-22", "rate": "149.80"},
+        {"date": "2026-04-23", "rate": "149.95"},
+        {"date": "2026-04-24", "rate": "150.05"},
+        {"date": "2026-04-25", "rate": "150.10"},
+        {"date": "2026-04-26", "rate": "150.00"},
+        {"date": "2026-04-27", "rate": "150.15"},
+        {"date": "2026-04-28", "rate": "150.25"},
+        {"date": "2026-04-29", "rate": "150.25"}
+      ]
+    },
+    {
+      "baseCurrency": "USD",
+      "quoteCurrency": "CNY",
+      "realTimeRate": "7.2150",
+      "rateChange": "-0.0012",
+      "rateChangePercent": "-0.02%",
+      "leftPanel": {
+        "sevenDayHigh": "7.2310",
+        "sevenDayLow": "7.1980",
+        "ytdChange": "5.33%",
+        "twentyDayChange": "3.85%"
+      },
+      "rightDetail": {
+        "openingRate": "7.2165",
+        "closingRate": "7.2150",
+        "volume24h": "896.7B",
+        "bankBuyRate": "7.2140",
+        "bankSellRate": "7.2160",
+        "yearlyQuantile": "44.21%"
+      },
+      "historyData": [
+        {"date": "2026-04-22", "rate": "7.2010"},
+        {"date": "2026-04-23", "rate": "7.2080"},
+        {"date": "2026-04-24", "rate": "7.2120"},
+        {"date": "2026-04-25", "rate": "7.2100"},
+        {"date": "2026-04-26", "rate": "7.2050"},
+        {"date": "2026-04-27", "rate": "7.2130"},
+        {"date": "2026-04-28", "rate": "7.2150"},
+        {"date": "2026-04-29", "rate": "7.2150"}
+      ]
+    },
+    {
+      "baseCurrency": "EUR",
+      "quoteCurrency": "USD",
+      "realTimeRate": "1.1173",
+      "rateChange": "0.0015",
+      "rateChangePercent": "0.13%",
+      "leftPanel": {
+        "sevenDayHigh": "1.1223",
+        "sevenDayLow": "1.1086",
+        "ytdChange": "2.19%",
+        "twentyDayChange": "0.95%"
+      },
+      "rightDetail": {
+        "openingRate": "1.1160",
+        "closingRate": "1.1173",
+        "volume24h": "720.3B",
+        "bankBuyRate": "1.1168",
+        "bankSellRate": "1.1178",
+        "yearlyQuantile": "61.40%"
+      },
+      "historyData": [
+        {"date": "2026-04-22", "rate": "1.1136"},
+        {"date": "2026-04-23", "rate": "1.1148"},
+        {"date": "2026-04-24", "rate": "1.1155"},
+        {"date": "2026-04-25", "rate": "1.1167"},
+        {"date": "2026-04-26", "rate": "1.1161"},
+        {"date": "2026-04-27", "rate": "1.1171"},
+        {"date": "2026-04-28", "rate": "1.1173"},
+        {"date": "2026-04-29", "rate": "1.1173"}
+      ]
+    },
+    {
+      "baseCurrency": "EUR",
+      "quoteCurrency": "GBP",
+      "realTimeRate": "0.8737",
+      "rateChange": "0.0005",
+      "rateChangePercent": "0.06%",
+      "leftPanel": {
+        "sevenDayHigh": "0.8785",
+        "sevenDayLow": "0.8702",
+        "ytdChange": "0.98%",
+        "twentyDayChange": "1.32%"
+      },
+      "rightDetail": {
+        "openingRate": "0.8732",
+        "closingRate": "0.8737",
+        "volume24h": "380.1B",
+        "bankBuyRate": "0.8730",
+        "bankSellRate": "0.8744",
+        "yearlyQuantile": "47.90%"
+      },
+      "historyData": [
+        {"date": "2026-04-22", "rate": "0.8723"},
+        {"date": "2026-04-23", "rate": "0.8728"},
+        {"date": "2026-04-24", "rate": "0.8731"},
+        {"date": "2026-04-25", "rate": "0.8733"},
+        {"date": "2026-04-26", "rate": "0.8730"},
+        {"date": "2026-04-27", "rate": "0.8735"},
+        {"date": "2026-04-28", "rate": "0.8737"},
+        {"date": "2026-04-29", "rate": "0.8737"}
+      ]
+    },
+    {
+      "baseCurrency": "EUR",
+      "quoteCurrency": "JPY",
+      "realTimeRate": "167.85",
+      "rateChange": "0.22",
+      "rateChangePercent": "0.13%",
+      "leftPanel": {
+        "sevenDayHigh": "169.20",
+        "sevenDayLow": "166.90",
+        "ytdChange": "5.32%",
+        "twentyDayChange": "2.75%"
+      },
+      "rightDetail": {
+        "openingRate": "167.63",
+        "closingRate": "167.85",
+        "volume24h": "450.8B",
+        "bankBuyRate": "167.70",
+        "bankSellRate": "168.00",
+        "yearlyQuantile": "55.10%"
+      },
+      "historyData": [
+        {"date": "2026-04-22", "rate": "167.50"},
+        {"date": "2026-04-23", "rate": "167.60"},
+        {"date": "2026-04-24", "rate": "167.70"},
+        {"date": "2026-04-25", "rate": "167.75"},
+        {"date": "2026-04-26", "rate": "167.68"},
+        {"date": "2026-04-27", "rate": "167.80"},
+        {"date": "2026-04-28", "rate": "167.85"},
+        {"date": "2026-04-29", "rate": "167.85"}
+      ]
+    },
+    {
+      "baseCurrency": "EUR",
+      "quoteCurrency": "CNY",
+      "realTimeRate": "8.0780",
+      "rateChange": "-0.0005",
+      "rateChangePercent": "-0.01%",
+      "leftPanel": {
+        "sevenDayHigh": "8.1050",
+        "sevenDayLow": "8.0520",
+        "ytdChange": "3.10%",
+        "twentyDayChange": "2.95%"
+      },
+      "rightDetail": {
+        "openingRate": "8.0785",
+        "closingRate": "8.0780",
+        "volume24h": "520.4B",
+        "bankBuyRate": "8.0770",
+        "bankSellRate": "8.0790",
+        "yearlyQuantile": "49.30%"
+      },
+      "historyData": [
+        {"date": "2026-04-22", "rate": "8.0620"},
+        {"date": "2026-04-23", "rate": "8.0680"},
+        {"date": "2026-04-24", "rate": "8.0720"},
+        {"date": "2026-04-25", "rate": "8.0750"},
+        {"date": "2026-04-26", "rate": "8.0730"},
+        {"date": "2026-04-27", "rate": "8.0770"},
+        {"date": "2026-04-28", "rate": "8.0780"},
+        {"date": "2026-04-29", "rate": "8.0780"}
+      ]
+    },
+    {
+      "baseCurrency": "GBP",
+      "quoteCurrency": "USD",
+      "realTimeRate": "1.2788",
+      "rateChange": "0.0016",
+      "rateChangePercent": "0.13%",
+      "leftPanel": {
+        "sevenDayHigh": "1.2837",
+        "sevenDayLow": "1.2690",
+        "ytdChange": "1.21%",
+        "twentyDayChange": "-0.45%"
+      },
+      "rightDetail": {
+        "openingRate": "1.2772",
+        "closingRate": "1.2788",
+        "volume24h": "510.2B",
+        "bankBuyRate": "1.2780",
+        "bankSellRate": "1.2796",
+        "yearlyQuantile": "58.70%"
+      },
+      "historyData": [
+        {"date": "2026-04-22", "rate": "1.2755"},
+        {"date": "2026-04-23", "rate": "1.2763"},
+        {"date": "2026-04-24", "rate": "1.2770"},
+        {"date": "2026-04-25", "rate": "1.2778"},
+        {"date": "2026-04-26", "rate": "1.2770"},
+        {"date": "2026-04-27", "rate": "1.2780"},
+        {"date": "2026-04-28", "rate": "1.2788"},
+        {"date": "2026-04-29", "rate": "1.2788"}
+      ]
+    },
+    {
+      "baseCurrency": "GBP",
+      "quoteCurrency": "EUR",
+      "realTimeRate": "1.1446",
+      "rateChange": "-0.0007",
+      "rateChangePercent": "-0.06%",
+      "leftPanel": {
+        "sevenDayHigh": "1.1491",
+        "sevenDayLow": "1.1383",
+        "ytdChange": "-0.97%",
+        "twentyDayChange": "-1.30%"
+      },
+      "rightDetail": {
+        "openingRate": "1.1453",
+        "closingRate": "1.1446",
+        "volume24h": "380.1B",
+        "bankBuyRate": "1.1440",
+        "bankSellRate": "1.1452",
+        "yearlyQuantile": "52.10%"
+      },
+      "historyData": [
+        {"date": "2026-04-22", "rate": "1.1464"},
+        {"date": "2026-04-23", "rate": "1.1458"},
+        {"date": "2026-04-24", "rate": "1.1454"},
+        {"date": "2026-04-25", "rate": "1.1451"},
+        {"date": "2026-04-26", "rate": "1.1455"},
+        {"date": "2026-04-27", "rate": "1.1448"},
+        {"date": "2026-04-28", "rate": "1.1446"},
+        {"date": "2026-04-29", "rate": "1.1446"}
+      ]
+    },
+    {
+      "baseCurrency": "GBP",
+      "quoteCurrency": "JPY",
+      "realTimeRate": "192.00",
+      "rateChange": "0.28",
+      "rateChangePercent": "0.15%",
+      "leftPanel": {
+        "sevenDayHigh": "193.40",
+        "sevenDayLow": "190.80",
+        "ytdChange": "4.40%",
+        "twentyDayChange": "2.30%"
+      },
+      "rightDetail": {
+        "openingRate": "191.72",
+        "closingRate": "192.00",
+        "volume24h": "390.6B",
+        "bankBuyRate": "191.85",
+        "bankSellRate": "192.15",
+        "yearlyQuantile": "57.60%"
+      },
+      "historyData": [
+        {"date": "2026-04-22", "rate": "191.60"},
+        {"date": "2026-04-23", "rate": "191.70"},
+        {"date": "2026-04-24", "rate": "191.80"},
+        {"date": "2026-04-25", "rate": "191.88"},
+        {"date": "2026-04-26", "rate": "191.80"},
+        {"date": "2026-04-27", "rate": "191.92"},
+        {"date": "2026-04-28", "rate": "192.00"},
+        {"date": "2026-04-29", "rate": "192.00"}
+      ]
+    },
+    {
+      "baseCurrency": "GBP",
+      "quoteCurrency": "CNY",
+      "realTimeRate": "9.2160",
+      "rateChange": "-0.0008",
+      "rateChangePercent": "-0.01%",
+      "leftPanel": {
+        "sevenDayHigh": "9.2450",
+        "sevenDayLow": "9.1850",
+        "ytdChange": "4.10%",
+        "twentyDayChange": "3.30%"
+      },
+      "rightDetail": {
+        "openingRate": "9.2168",
+        "closingRate": "9.2160",
+        "volume24h": "430.2B",
+        "bankBuyRate": "9.2150",
+        "bankSellRate": "9.2170",
+        "yearlyQuantile": "50.40%"
+      },
+      "historyData": [
+        {"date": "2026-04-22", "rate": "9.1980"},
+        {"date": "2026-04-23", "rate": "9.2050"},
+        {"date": "2026-04-24", "rate": "9.2100"},
+        {"date": "2026-04-25", "rate": "9.2130"},
+        {"date": "2026-04-26", "rate": "9.2110"},
+        {"date": "2026-04-27", "rate": "9.2150"},
+        {"date": "2026-04-28", "rate": "9.2160"},
+        {"date": "2026-04-29", "rate": "9.2160"}
+      ]
+    },
+    {
+      "baseCurrency": "JPY",
+      "quoteCurrency": "USD",
+      "realTimeRate": "0.006656",
+      "rateChange": "-0.000015",
+      "rateChangePercent": "-0.23%",
+      "leftPanel": {
+        "sevenDayHigh": "0.006685",
+        "sevenDayLow": "0.006588",
+        "ytdChange": "-3.10%",
+        "twentyDayChange": "-1.82%"
+      },
+      "rightDetail": {
+        "openingRate": "0.006671",
+        "closingRate": "0.006656",
+        "volume24h": "680.5B",
+        "bankBuyRate": "0.006651",
+        "bankSellRate": "0.006661",
+        "yearlyQuantile": "47.30%"
+      },
+      "historyData": [
+        {"date": "2026-04-22", "rate": "0.006676"},
+        {"date": "2026-04-23", "rate": "0.006670"},
+        {"date": "2026-04-24", "rate": "0.006665"},
+        {"date": "2026-04-25", "rate": "0.006662"},
+        {"date": "2026-04-26", "rate": "0.006667"},
+        {"date": "2026-04-27", "rate": "0.006658"},
+        {"date": "2026-04-28", "rate": "0.006656"},
+        {"date": "2026-04-29", "rate": "0.006656"}
+      ]
+    },
+    {
+      "baseCurrency": "JPY",
+      "quoteCurrency": "EUR",
+      "realTimeRate": "0.005958",
+      "rateChange": "-0.000008",
+      "rateChangePercent": "-0.13%",
+      "leftPanel": {
+        "sevenDayHigh": "0.006001",
+        "sevenDayLow": "0.005910",
+        "ytdChange": "-5.05%",
+        "twentyDayChange": "-2.68%"
+      },
+      "rightDetail": {
+        "openingRate": "0.005966",
+        "closingRate": "0.005958",
+        "volume24h": "450.8B",
+        "bankBuyRate": "0.005953",
+        "bankSellRate": "0.005963",
+        "yearlyQuantile": "44.90%"
+      },
+      "historyData": [
+        {"date": "2026-04-22", "rate": "0.005971"},
+        {"date": "2026-04-23", "rate": "0.005966"},
+        {"date": "2026-04-24", "rate": "0.005963"},
+        {"date": "2026-04-25", "rate": "0.005961"},
+        {"date": "2026-04-26", "rate": "0.005964"},
+        {"date": "2026-04-27", "rate": "0.005960"},
+        {"date": "2026-04-28", "rate": "0.005958"},
+        {"date": "2026-04-29", "rate": "0.005958"}
+      ]
+    },
+    {
+      "baseCurrency": "JPY",
+      "quoteCurrency": "GBP",
+      "realTimeRate": "0.005208",
+      "rateChange": "-0.000008",
+      "rateChangePercent": "-0.15%",
+      "leftPanel": {
+        "sevenDayHigh": "0.005241",
+        "sevenDayLow": "0.005170",
+        "ytdChange": "-4.21%",
+        "twentyDayChange": "-2.25%"
+      },
+      "rightDetail": {
+        "openingRate": "0.005216",
+        "closingRate": "0.005208",
+        "volume24h": "390.6B",
+        "bankBuyRate": "0.005203",
+        "bankSellRate": "0.005213",
+        "yearlyQuantile": "42.40%"
+      },
+      "historyData": [
+        {"date": "2026-04-22", "rate": "0.005219"},
+        {"date": "2026-04-23", "rate": "0.005215"},
+        {"date": "2026-04-24", "rate": "0.005212"},
+        {"date": "2026-04-25", "rate": "0.005210"},
+        {"date": "2026-04-26", "rate": "0.005213"},
+        {"date": "2026-04-27", "rate": "0.005209"},
+        {"date": "2026-04-28", "rate": "0.005208"},
+        {"date": "2026-04-29", "rate": "0.005208"}
+      ]
+    },
+    {
+      "baseCurrency": "JPY",
+      "quoteCurrency": "CNY",
+      "realTimeRate": "0.04803",
+      "rateChange": "-0.00005",
+      "rateChangePercent": "-0.10%",
+      "leftPanel": {
+        "sevenDayHigh": "0.04825",
+        "sevenDayLow": "0.04775",
+        "ytdChange": "-2.90%",
+        "twentyDayChange": "-1.40%"
+      },
+      "rightDetail": {
+        "openingRate": "0.04808",
+        "closingRate": "0.04803",
+        "volume24h": "410.3B",
+        "bankBuyRate": "0.04800",
+        "bankSellRate": "0.04806",
+        "yearlyQuantile": "46.10%"
+      },
+      "historyData": [
+        {"date": "2026-04-22", "rate": "0.04810"},
+        {"date": "2026-04-23", "rate": "0.04808"},
+        {"date": "2026-04-24", "rate": "0.04806"},
+        {"date": "2026-04-25", "rate": "0.04805"},
+        {"date": "2026-04-26", "rate": "0.04807"},
+        {"date": "2026-04-27", "rate": "0.04804"},
+        {"date": "2026-04-28", "rate": "0.04803"},
+        {"date": "2026-04-29", "rate": "0.04803"}
+      ]
+    },
+    {
+      "baseCurrency": "CNY",
+      "quoteCurrency": "USD",
+      "realTimeRate": "0.1386",
+      "rateChange": "0.00003",
+      "rateChangePercent": "0.02%",
+      "leftPanel": {
+        "sevenDayHigh": "0.1390",
+        "sevenDayLow": "0.1383",
+        "ytdChange": "-5.06%",
+        "twentyDayChange": "-3.71%"
+      },
+      "rightDetail": {
+        "openingRate": "0.1386",
+        "closingRate": "0.1386",
+        "volume24h": "896.7B",
+        "bankBuyRate": "0.1385",
+        "bankSellRate": "0.1387",
+        "yearlyQuantile": "55.79%"
+      },
+      "historyData": [
+        {"date": "2026-04-22", "rate": "0.1389"},
+        {"date": "2026-04-23", "rate": "0.1387"},
+        {"date": "2026-04-24", "rate": "0.1386"},
+        {"date": "2026-04-25", "rate": "0.1387"},
+        {"date": "2026-04-26", "rate": "0.1388"},
+        {"date": "2026-04-27", "rate": "0.1386"},
+        {"date": "2026-04-28", "rate": "0.1386"},
+        {"date": "2026-04-29", "rate": "0.1386"}
+      ]
+    },
+    {
+      "baseCurrency": "CNY",
+      "quoteCurrency": "EUR",
+      "realTimeRate": "0.1238",
+      "rateChange": "0.00001",
+      "rateChangePercent": "0.01%",
+      "leftPanel": {
+        "sevenDayHigh": "0.1242",
+        "sevenDayLow": "0.1234",
+        "ytdChange": "-3.01%",
+        "twentyDayChange": "-2.86%"
+      },
+      "rightDetail": {
+        "openingRate": "0.1238",
+        "closingRate": "0.1238",
+        "volume24h": "520.4B",
+        "bankBuyRate": "0.1237",
+        "bankSellRate": "0.1239",
+        "yearlyQuantile": "50.70%"
+      },
+      "historyData": [
+        {"date": "2026-04-22", "rate": "0.1240"},
+        {"date": "2026-04-23", "rate": "0.1239"},
+        {"date": "2026-04-24", "rate": "0.1238"},
+        {"date": "2026-04-25", "rate": "0.1238"},
+        {"date": "2026-04-26", "rate": "0.1238"},
+        {"date": "2026-04-27", "rate": "0.1238"},
+        {"date": "2026-04-28", "rate": "0.1238"},
+        {"date": "2026-04-29", "rate": "0.1238"}
+      ]
+    },
+    {
+      "baseCurrency": "CNY",
+      "quoteCurrency": "GBP",
+      "realTimeRate": "0.1085",
+      "rateChange": "0.00001",
+      "rateChangePercent": "0.01%",
+      "leftPanel": {
+        "sevenDayHigh": "0.1089",
+        "sevenDayLow": "0.1082",
+        "ytdChange": "-3.94%",
+        "twentyDayChange": "-3.19%"
+      },
+      "rightDetail": {
+        "openingRate": "0.1085",
+        "closingRate": "0.1085",
+        "volume24h": "430.2B",
+        "bankBuyRate": "0.1084",
+        "bankSellRate": "0.1086",
+        "yearlyQuantile": "49.60%"
+      },
+      "historyData": [
+        {"date": "2026-04-22", "rate": "0.1087"},
+        {"date": "2026-04-23", "rate": "0.1086"},
+        {"date": "2026-04-24", "rate": "0.1085"},
+        {"date": "2026-04-25", "rate": "0.1085"},
+        {"date": "2026-04-26", "rate": "0.1085"},
+        {"date": "2026-04-27", "rate": "0.1085"},
+        {"date": "2026-04-28", "rate": "0.1085"},
+        {"date": "2026-04-29", "rate": "0.1085"}
+      ]
+    },
+    {
+      "baseCurrency": "CNY",
+      "quoteCurrency": "JPY",
+      "realTimeRate": "20.820",
+      "rateChange": "0.022",
+      "rateChangePercent": "0.11%",
+      "leftPanel": {
+        "sevenDayHigh": "20.940",
+        "sevenDayLow": "20.730",
+        "ytdChange": "3.00%",
+        "twentyDayChange": "1.42%"
+      },
+      "rightDetail": {
+        "openingRate": "20.798",
+        "closingRate": "20.820",
+        "volume24h": "410.3B",
+        "bankBuyRate": "20.805",
+        "bankSellRate": "20.835",
+        "yearlyQuantile": "53.90%"
+      },
+      "historyData": [
+        {"date": "2026-04-22", "rate": "20.790"},
+        {"date": "2026-04-23", "rate": "20.800"},
+        {"date": "2026-04-24", "rate": "20.810"},
+        {"date": "2026-04-25", "rate": "20.815"},
+        {"date": "2026-04-26", "rate": "20.808"},
+        {"date": "2026-04-27", "rate": "20.818"},
+        {"date": "2026-04-28", "rate": "20.820"},
+        {"date": "2026-04-29", "rate": "20.820"}
+      ]
+    }
+  ]
+}
+```
+
+---
+
+## 字段说明
+## 整体结构说明
+仅包含 **5 种核心货币**：`USD、EUR、GBP、JPY、CNY`  
+预先聚合**所有货币两两组合**的完整数据，前端一次性加载，切换货币对无需再请求后端，自带**7天历史行情**可直接绘图。
+
+---
+
+## 顶层根字段
+| Key | 数据类型 | 简要说明 | 前端使用场景 |
+|-----|----------|----------|--------------|
+| updateTime | 字符串 | 全局数据最后更新时间（UTC 标准格式） | 页面统一展示数据刷新时间、状态栏时间 |
+| currencyList | 数组 | 全部可选货币代码列表 | 顶部双下拉框选项、Profile 货币遍历渲染 |
+| allCurrencyPairs | 数组 | 所有货币两两配对的完整数据集（核心） | 前端根据「基准货币/目标货币」筛选对应数据，供给所有面板、图表使用 |
+
+---
+
+## allCurrencyPairs 单条货币对 一级字段
+| Key | 数据类型 | 简要说明 | 前端使用场景 |
+|-----|----------|----------|--------------|
+| baseCurrency | 字符串 | 基准货币代码（如 USD） | 标识当前货币对左侧货币、下拉框匹配筛选 |
+| quoteCurrency | 字符串 | 目标货币代码（如 CNY） | 标识当前货币对右侧货币、下拉框匹配筛选 |
+| realTimeRate | 字符串 | 当前实时汇率 | 首页顶部大字体核心汇率展示 |
+| rateChange | 字符串 | 涨跌绝对点数 | 汇率涨跌数值展示 |
+| rateChangePercent | 字符串 | 涨跌百分比 | 红绿涨跌标签展示，区分上涨下跌 |
+
+---
+
+## leftPanel 左侧主卡片专属字段
+对应你首页**左边卡片**固定4项数据
+| Key | 数据类型 | 简要说明 | 前端使用场景 |
+|-----|----------|----------|--------------|
+| sevenDayHigh | 字符串 | 近7日汇率最高价 | 左侧指标面板：7D High |
+| sevenDayLow | 字符串 | 近7日汇率最低价 | 左侧指标面板：7D Low |
+| ytdChange | 字符串 | 年初至今涨跌幅 | 左侧指标面板：YTD Change |
+| twentyDayChange | 字符串 | 近20日涨跌幅 | 左侧指标面板：20D Change % |
+
+---
+
+## rightDetail 右侧Detail面板专属字段
+对应你首页**右侧Detail标签**6项数据
+| Key | 数据类型 | 简要说明 | 前端使用场景 |
+|-----|----------|----------|--------------|
+| openingRate | 字符串 | 当日开盘汇率 | 右侧详情面板：Opening Rate |
+| closingRate | 字符串 | 昨日/最新收盘汇率 | 右侧详情面板：Closing Rate |
+| volume24h | 字符串 | 24小时市场成交额 | 右侧详情面板：24H Volume |
+| bankBuyRate | 字符串 | 银行买入价 | 右侧详情面板：Bank Buy Rate |
+| bankSellRate | 字符串 | 银行卖出价 | 右侧详情面板：Bank Sell Rate |
+| yearlyQuantile | 字符串 | 年内汇率分位百分比 | 右侧详情面板：Yearly Quantile |
+
+---
+
+## historyData 历史行情数组（绘图专用）
+存储**7天时间序列数据**，直接供给图表渲染
+| Key | 数据类型 | 简要说明 | 前端使用场景 |
+|-----|----------|----------|--------------|
+| date | 字符串 | 日期（YYYY-MM-DD） | 图表 X 轴时间刻度 |
+| rate | 字符串 | 当日对应汇率 | 图表 Y 轴数值、趋势折线绘制 |
